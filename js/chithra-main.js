@@ -1,13 +1,12 @@
 // Configuration - Replace with your Google Sheets Published CSV URLs for K.S. Chithra
 const SHEETS_CONFIG = {
-    malayalam: 'YOUR_MALAYALAM_SHEET_CSV_URL',
-    tamil: 'YOUR_TAMIL_SHEET_CSV_URL',
-    telugu: 'YOUR_TELUGU_SHEET_CSV_URL',
-    kannada: 'YOUR_KANNADA_SHEET_CSV_URL',
-    hindi: 'YOUR_HINDI_SHEET_CSV_URL',
-    other: 'YOUR_OTHER_LANGUAGES_SHEET_CSV_URL'
+    malayalam: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=0&single=true&output=csv',
+    tamil: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=633202374&single=true&output=csv',
+    telugu: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=1972620029&single=true&output=csv',
+    kannada: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=1314987480&single=true&output=csv',
+    hindi: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=2082159835&single=true&output=csv',
+    other: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=91154675&single=true&output=csv'
 };
-
 // Global variables
 let currentLanguage = '';
 let allSongs = [];
