@@ -16,7 +16,7 @@
     --rose-medium: #e639af;
     --rose-light: #ff75cf;
     --rose-lighter: #ffb3fe;
-    --rose-glow: rgba(201, 24, 157, 0.2);
+    --rose-glow: rgba(117, 18, 92, 0.2);
     
     /* Complementary Gold */
     --gold-deep: #D4A574;
@@ -212,7 +212,7 @@ nav {
 }
 
 .award-badge {
-    background: linear-gradient(135deg, var(--rose-deep), var(--rose-medium));
+    background: linear-gradient(135deg, var(--rose-deep), var(--rose-deep));
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -862,7 +862,7 @@ nav {
    ================================================================= */
 
 footer {
-    background: var(--rose-deep);
+    background: var(--rose-glow);
     color: white;
     text-align: center;
     padding: 2rem;
