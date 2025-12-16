@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=1200, initial-scale=0.3, user-scalable=yes">
+    <meta name="color-scheme" content="light">
+    <style>:root { color-scheme: light only !important; }</style>
+    <meta charset="UTF-8">
+    <title>K.S. Chithra - Malayalam Songs</title>
+    <link rel="stylesheet" href="css/chithra-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🎤 K.S. Chithra</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tamil.html">Malayalam</a></li>
+                <li><a href="tamil.html">Tamil</a></li>
+                <li><a href="telugu.html">Telugu</a></li>
+                <li><a href="kannada.html">Kannada</a></li>
+                <li><a href="hindi.html">Hindi</a></li>
+                <li><a href="other.html">Other</a></li>
+                <li><a href="statistics.html">Statistics</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="collaborations.html">Collaborations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>🌹 Tamil Songs</h1>
+        <p>Golden voice of Tamil cinema</p>
+    </div>
+    
+    <!-- Search and Filter -->
+    <div class="search-section">
+        <!-- Search Box -->
+        <div class="search-filter-row">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search for songs, movies, composers...">
+            </div>
+        </div>
+        
+        <!-- Quick Filter Buttons -->
+        <div class="quick-filters">
+            <button class="quick-filter-btn" data-filter="recent">📅 Recent (Last 10 Years)</button>
+            <button class="quick-filter-btn" data-filter="classic">⭐ Classic (1980-2000)</button>
+            <button class="quick-filter-btn" data-filter="golden">🏆 Golden Era (1985-1995)</button>
+            <button class="quick-filter-btn" data-filter="modern">🎬 Modern (2000-2015)</button>
+        </div>
+        
+        <!-- Advanced Filters -->
+        <div class="filter-section">
+            <span class="filter-label">Filter by:</span>
+            
+            <!-- Type Filter -->
+            <select id="typeFilter" class="filter-select">
+                <option value="all">All Types</option>
+            </select>
+            
+            <!-- Decade Filter -->
+            <select id="decadeFilter" class="filter-select">
+                <option value="all">All Decades</option>
+            </select>
+            
+            <!-- Genre Filter -->
+            <select id="genreFilter" class="filter-select">
+                <option value="all">All Genres</option>
+            </select>
+            
+            <!-- Composer Filter -->
+            <select id="composerFilter" class="filter-select">
+                <option value="all">All Composers</option>
+            </select>
+            
+            <!-- Co-Singer Filter -->
+            <select id="cosingerFilter" class="filter-select">
+                <option value="all">All Co-Singers</option>
+            </select>
+        </div>
+        
+        <!-- Year Range Filter -->
+        <div class="year-range-filter">
+            <span class="filter-label">Year Range:</span>
+            <input type="number" id="yearFrom" class="year-input" placeholder="From (e.g., 1985)" min="1975" max="2030">
+            <span class="year-separator">to</span>
+            <input type="number" id="yearTo" class="year-input" placeholder="To (e.g., 1995)" min="1975" max="2030">
+            <button id="clearFilters" class="clear-filters-btn">🗑️ Clear All Filters</button>
+        </div>
+        
+        <!-- Active Filters Display -->
+        <div id="activeFilters" class="active-filters-container"></div>
+        
+        <!-- Stats Display -->
+        <div class="stats-display" id="statsDisplay"></div>
+    </div>
+    
+    <!-- Songs Grid -->
+    <div class="songs-container">
+        <div class="songs-grid" id="songsGrid">
+            <div class="loading">Loading songs from Google Sheets...</div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p><strong>A Tribute to the Legendary K.S. Chithra</strong></p>
+        <p>Celebrating over 40 years of musical excellence</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 - This is a fan tribute website by Sibin.V.K (sibinvk2007@gmail.com)</p>
+    </footer>
+    
+    <!-- Mini Player -->
+    <div id="miniPlayer" class="mini-player hidden">
+        <div class="mini-player-content">
+            <div class="mini-player-info">
+                <h4 id="playerSongTitle">Song Title</h4>
+                <p id="playerSongDetails">Movie • Singer</p>
+            </div>
+            <div class="mini-player-controls">
+                <button id="minimizePlayer" class="player-btn">▼</button>
+                <button id="closePlayer" class="player-btn">✕</button>
+            </div>
+        </div>
+        <div id="playerContainer" class="player-container"></div>
+    </div>
+    
+    <script src="js/chithra-main.js"></script>
+</body>
+</html>
