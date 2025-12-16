@@ -12,11 +12,11 @@
     --bg-card: #2A2A3E;
     
     /* Rose Pink Theme */
-    --rose-deep: #C9184A;
-    --rose-medium: #E63946;
-    --rose-light: #FF758F;
-    --rose-lighter: #FFB3C6;
-    --rose-glow: rgba(201, 24, 74, 0.2);
+    --rose-deep: #d42694;
+    --rose-medium: #e639af;
+    --rose-light: #ff75cf;
+    --rose-lighter: #ffb3fe;
+    --rose-glow: rgba(201, 24, 157, 0.2);
     
     /* Complementary Gold */
     --gold-deep: #D4A574;
