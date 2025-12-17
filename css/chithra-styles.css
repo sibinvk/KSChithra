@@ -43,7 +43,7 @@
     box-sizing: border-box;
 }
 
-body {font-family: 'Abril Fatface', sans-serif;
+body {font-family: 'Abril-Fatface', sans-serif;
     line-height: 1.6;
     color: var(--text-normal);
     background: var(--bg-dark);
