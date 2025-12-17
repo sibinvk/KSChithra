@@ -343,7 +343,7 @@ nav {
 .search-box input {
     width: 100%;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     border: 2px solid var(--border-light);
     border-radius: 10px;
     background: var(--bg-dark);
@@ -353,6 +353,7 @@ nav {
 .search-box input:focus {
     outline: none;
     border-color: var(--rose-medium);
+   font-size: 1.5rem;
 }
 
 .quick-filters {
@@ -360,6 +361,7 @@ nav {
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
+   font-size: 1.5rem;
 }
 
 .quick-filter-btn {
@@ -371,6 +373,7 @@ nav {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+   font-size: 1.5rem;
 }
 
 .quick-filter-btn:hover,
@@ -378,6 +381,7 @@ nav {
     background: linear-gradient(135deg, var(--rose-deep), var(--rose-medium));
     color: white;
     border-color: var(--rose-deep);
+   font-size: 1.5rem;
 }
 
 .filter-section {
@@ -386,11 +390,13 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 1.5rem;
+   font-size: 1.5rem;
 }
 
 .filter-label {
     color: var(--text-bright);
     font-weight: 600;
+   font-size: 1.5rem;
 }
 
 .filter-select {
@@ -401,10 +407,12 @@ nav {
     color: var(--text-bright);
     cursor: pointer;
     min-width: 150px;
+   font-size: 1.5rem;
 }
 
 .filter-select:focus {
     outline: none;
+   font-size: 1.5rem;
     border-color: var(--rose-medium);
 }
 
@@ -413,6 +421,7 @@ nav {
     gap: 1rem;
     align-items: center;
     flex-wrap: wrap;
+   font-size: 1.5rem;
 }
 
 .year-input {
@@ -422,10 +431,12 @@ nav {
     background: var(--bg-dark);
     color: var(--text-bright);
     width: 150px;
+   font-size: 1.5rem;
 }
 
 .year-input:focus {
     outline: none;
+   font-size: 1.5rem;
     border-color: var(--rose-medium);
 }
 
@@ -437,9 +448,11 @@ nav {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+   font-size: 1.5rem;
 }
 
 .clear-filters-btn:hover {
+   font-size: 1.5rem;
     background: var(--rose-medium);
 }
 
@@ -448,6 +461,7 @@ nav {
     gap: 0.75rem;
     flex-wrap: wrap;
     margin-top: 1rem;
+   font-size: 1.5rem;
 }
 
 .active-filter {
@@ -455,7 +469,7 @@ nav {
     color: var(--rose-deep);
     padding: 0.5rem 1rem;
     border-radius: 15px;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
@@ -464,6 +478,7 @@ nav {
     font-weight: 600;
     color: var(--text-muted);
     margin-top: 1rem;
+   font-size: 2rem;
 }
 
 /* =================================================================
@@ -560,7 +575,7 @@ nav {
 
 .song-info h3 {
     color: var(--rose-deep);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
 }
@@ -571,14 +586,14 @@ nav {
     color: var(--gold-deep);
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     margin-bottom: 0.75rem;
     font-weight: 500;
 }
 
 .song-details {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 1.5rem;
 }
 
 .song-detail {
@@ -599,7 +614,7 @@ nav {
     color: var(--rose-deep);
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     margin-right: 0.5rem;
 }
 
