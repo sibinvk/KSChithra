@@ -3,8 +3,7 @@
    Sophisticated dark design with magenta/purple accents celebrating the Nightingale of South India
    ================================================================= */
 /* Import Poppins Font from Google Fonts (similar to Amutham Masala website) */
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&display=swap');
 :root {
     /* Soft Backgrounds */
     --bg-darkest: #300725;
@@ -43,7 +42,7 @@
     box-sizing: border-box;
 }
 
-body {font-family: 'Abril-Fatface', sans-serif;
+body {font-family: 'Urbanist', sans-serif;
     line-height: 1.6;
     color: var(--text-normal);
     background: var(--bg-dark);
