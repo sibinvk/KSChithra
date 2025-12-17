@@ -135,10 +135,10 @@ nav {
 }
 
 .hero-subtitle {
-    font-size: 2.7rem;
+    font-size: 2.6rem;
     color: var(--text-normal);
     margin-bottom: 2rem;
-   font-weight: bold;
+   
     font-style: italic;
 }
 
