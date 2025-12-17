@@ -865,7 +865,7 @@ nav {
    ================================================================= */
 
 footer {
-    background: var(--rose-glow);
+    background: var(--bg-darkest);
     color: white;
     text-align: center;
     padding: 2rem;
