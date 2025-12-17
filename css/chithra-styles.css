@@ -127,9 +127,9 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: 5.25rem;
+    font-size: 5.3rem;
     color: var(--rose-deep);
-    margin-bottom: 0.2rem;
+    
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(201, 24, 74, 0.1);
 }
