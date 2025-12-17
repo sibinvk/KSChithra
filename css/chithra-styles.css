@@ -126,7 +126,7 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     color: var(--rose-deep);
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -134,7 +134,7 @@ nav {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--text-normal);
     margin-bottom: 2rem;
     font-style: italic;
@@ -159,7 +159,7 @@ nav {
 }
 
 .stat-label {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -187,7 +187,7 @@ nav {
 }
 
 .biography-image {
-   margin-top: 15rem;
+   margin-top: 25rem;
     width: 100%;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(201, 24, 74, 0.2);
