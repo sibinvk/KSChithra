@@ -8,8 +8,8 @@
 
 :root {
     /* Soft Backgrounds */
-    --bg-darkest: #0A0A0F;
-    --bg-dark: #12121A;
+    --bg-darkest: #300725;
+    --bg-dark: #540f42;
     --bg-medium: #1E1E2E;
     --bg-elevated: #252535;
     --bg-card: #2A2A3E;
@@ -44,7 +44,7 @@
     box-sizing: border-box;
 }
 
-body {font-family: 'Inter', sans-serif;
+body {font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--text-normal);
     background: var(--bg-dark);
