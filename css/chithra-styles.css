@@ -361,7 +361,7 @@ nav {
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
-   font-size: 1.1rem;
+   font-size: 1.0rem;
 }
 
 .quick-filter-btn {
@@ -373,7 +373,7 @@ nav {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
-   font-size: 1.2rem;
+   font-size: 1.0rem;
 }
 
 .quick-filter-btn:hover,
@@ -381,7 +381,7 @@ nav {
     background: linear-gradient(135deg, var(--rose-deep), var(--rose-medium));
     color: white;
     border-color: var(--rose-deep);
-   font-size: 1.1rem;
+   font-size: 1.0rem;
 }
 
 .filter-section {
@@ -390,13 +390,13 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 1.5rem;
-   font-size: 1.1rem;
+   font-size: 1.0rem;
 }
 
 .filter-label {
     color: var(--text-bright);
     font-weight: 600;
-   font-size: 1.1rem;
+   font-size: 1.0rem;
 }
 
 .filter-select {
@@ -407,12 +407,12 @@ nav {
     color: var(--text-bright);
     cursor: pointer;
     min-width: 150px;
-   font-size: 1.1rem;
+   font-size: 1.0rem;
 }
 
 .filter-select:focus {
     outline: none;
-   font-size: 1.1rem;
+   font-size: 1.0rem;
     border-color: var(--rose-medium);
 }
 
