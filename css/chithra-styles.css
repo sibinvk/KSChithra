@@ -78,7 +78,7 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-size: 2.0rem;
+    font-size: 2.2rem;
     font-weight: bold;
     text-decoration: none;
     display: flex;
@@ -93,6 +93,7 @@ nav {
     list-style: none;
     align-items: center;
     flex-wrap: wrap;
+   font-size: 1.2rem;
 }
 
 .nav-links li {
