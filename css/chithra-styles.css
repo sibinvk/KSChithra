@@ -127,7 +127,7 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: 5.5rem;
+    font-size: 5.25rem;
     color: var(--rose-deep);
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -135,9 +135,10 @@ nav {
 }
 
 .hero-subtitle {
-    font-size: 3rem;
+    font-size: 2.7rem;
     color: var(--text-normal);
     margin-bottom: 2rem;
+   font-weight: bold;
     font-style: italic;
 }
 
