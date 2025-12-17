@@ -126,7 +126,7 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: var(--rose-deep);
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -187,7 +187,7 @@ nav {
 }
 
 .biography-image {
-   margin-top: 25rem;
+   margin-top: 10rem;
     width: 100%;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(201, 24, 74, 0.2);
