@@ -44,7 +44,7 @@
     box-sizing: border-box;
 }
 
-body {font-family: 'Cambria', sans-serif;
+body {font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-normal);
     background: var(--bg-dark);
