@@ -343,7 +343,7 @@ nav {
 .search-box input {
     width: 100%;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border: 2px solid var(--border-light);
     border-radius: 10px;
     background: var(--bg-dark);
@@ -353,7 +353,7 @@ nav {
 .search-box input:focus {
     outline: none;
     border-color: var(--rose-medium);
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .quick-filters {
@@ -361,7 +361,7 @@ nav {
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .quick-filter-btn {
@@ -373,7 +373,7 @@ nav {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .quick-filter-btn:hover,
@@ -381,7 +381,7 @@ nav {
     background: linear-gradient(135deg, var(--rose-deep), var(--rose-medium));
     color: white;
     border-color: var(--rose-deep);
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .filter-section {
@@ -390,13 +390,13 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 1.5rem;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .filter-label {
     color: var(--text-bright);
     font-weight: 600;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .filter-select {
@@ -407,12 +407,12 @@ nav {
     color: var(--text-bright);
     cursor: pointer;
     min-width: 150px;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .filter-select:focus {
     outline: none;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
     border-color: var(--rose-medium);
 }
 
@@ -421,7 +421,7 @@ nav {
     gap: 1rem;
     align-items: center;
     flex-wrap: wrap;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .year-input {
@@ -431,12 +431,12 @@ nav {
     background: var(--bg-dark);
     color: var(--text-bright);
     width: 150px;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .year-input:focus {
     outline: none;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
     border-color: var(--rose-medium);
 }
 
@@ -448,11 +448,11 @@ nav {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .clear-filters-btn:hover {
-   font-size: 1.5rem;
+   font-size: 1.2rem;
     background: var(--rose-medium);
 }
 
@@ -461,7 +461,7 @@ nav {
     gap: 0.75rem;
     flex-wrap: wrap;
     margin-top: 1rem;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 
 .active-filter {
@@ -469,7 +469,7 @@ nav {
     color: var(--rose-deep);
     padding: 0.5rem 1rem;
     border-radius: 15px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -478,7 +478,7 @@ nav {
     font-weight: 600;
     color: var(--text-muted);
     margin-top: 1rem;
-   font-size: 2rem;
+   font-size: 2.2rem;
 }
 
 /* =================================================================
@@ -575,7 +575,7 @@ nav {
 
 .song-info h3 {
     color: var(--rose-deep);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
 }
@@ -593,7 +593,7 @@ nav {
 
 .song-details {
     color: var(--text-muted);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .song-detail {
