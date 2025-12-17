@@ -44,7 +44,7 @@
     box-sizing: border-box;
 }
 
-body {font-family: 'Rockwell', sans-serif;
+body {font-family: 'Cambria', sans-serif;
     line-height: 1.6;
     color: var(--text-normal);
     background: var(--bg-dark);
