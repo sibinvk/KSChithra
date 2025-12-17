@@ -274,7 +274,7 @@ nav {
 
 .language-card h3 {
     color: var(--rose-deep);
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
 }
 
@@ -289,7 +289,7 @@ nav {
     color: var(--rose-deep);
     padding: 0.4rem 1rem;
     border-radius: 15px;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
