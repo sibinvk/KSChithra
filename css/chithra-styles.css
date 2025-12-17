@@ -235,7 +235,7 @@ nav {
 
 .languages-section h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--rose-deep);
     margin-bottom: 3rem;
 }
@@ -267,13 +267,13 @@ nav {
 }
 
 .language-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 
 .language-card h3 {
     color: var(--rose-deep);
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
