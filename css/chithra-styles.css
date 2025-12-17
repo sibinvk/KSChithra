@@ -308,13 +308,13 @@ nav {
 }
 
 .page-header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--rose-deep);
     margin-bottom: 0.5rem;
 }
 
 .page-header p {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     color: var(--text-normal);
     font-style: italic;
 }
@@ -361,7 +361,7 @@ nav {
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
-   font-size: 1.2rem;
+   font-size: 1.1rem;
 }
 
 .quick-filter-btn {
@@ -381,7 +381,7 @@ nav {
     background: linear-gradient(135deg, var(--rose-deep), var(--rose-medium));
     color: white;
     border-color: var(--rose-deep);
-   font-size: 1.2rem;
+   font-size: 1.1rem;
 }
 
 .filter-section {
@@ -390,13 +390,13 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 1.5rem;
-   font-size: 1.2rem;
+   font-size: 1.1rem;
 }
 
 .filter-label {
     color: var(--text-bright);
     font-weight: 600;
-   font-size: 1.2rem;
+   font-size: 1.1rem;
 }
 
 .filter-select {
@@ -407,12 +407,12 @@ nav {
     color: var(--text-bright);
     cursor: pointer;
     min-width: 150px;
-   font-size: 1.2rem;
+   font-size: 1.1rem;
 }
 
 .filter-select:focus {
     outline: none;
-   font-size: 1.2rem;
+   font-size: 1.1rem;
     border-color: var(--rose-medium);
 }
 
