@@ -274,14 +274,14 @@ nav {
 
 .language-card h3 {
     color: var(--rose-deep);
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
 }
 
 .language-card p {
     color: var(--text-muted);
     margin-bottom: 1rem;
-   font-size: 2rem;
+   font-size: 1.5rem;
 }
 
 .song-count {
@@ -290,7 +290,7 @@ nav {
     color: var(--rose-deep);
     padding: 0.4rem 1rem;
     border-radius: 15px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
