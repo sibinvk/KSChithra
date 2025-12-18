@@ -141,6 +141,10 @@ function createSongCard(song) {
     const youtubeUrl = song.youtube || song['youtube link'] || song.link || '';
     const hasVideo = !!youtubeUrl;
     
+    // Get YouTube video ID for thumbnail
+    const videoId = getYouTubeVideoId(youtubeUrl);
+    const thumbnailUrl = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : '';
+    
     // Format co-singers nicely
     let cosingerDisplay = cosinger;
     if (cosinger) {
@@ -150,9 +154,9 @@ function createSongCard(song) {
     
     return `
         <div class="song-card ${!hasVideo ? 'no-video' : ''}" data-genre="${genre}" data-type="${type}">
-            <div class="song-thumbnail">
-                ${hasVideo ? '🎤' : '🚫'}
-                ${hasVideo ? '<div class="play-overlay"><div class="play-icon">▶</div></div>' : '<div class="no-video-overlay"><div class="no-video-text">No Video</div></div>'}
+            <div class="song-thumbnail" style="${thumbnailUrl ? `background-image: url('${thumbnailUrl}'); background-size: cover; background-position: center;` : ''}">
+                ${!thumbnailUrl ? (hasVideo ? 'ðŸŽ¤' : 'ðŸš«') : ''}
+                ${hasVideo ? '<div class="play-overlay"><div class="play-icon">â–¶</div></div>' : '<div class="no-video-overlay"><div class="no-video-text">No Video</div></div>'}
             </div>
             <div class="song-info">
                 <h3>${title}</h3>
@@ -190,7 +194,7 @@ function playYouTubeVideo(song) {
     const cosinger = song.cosinger || song['co-singer'] || '';
     
     songTitle.textContent = title;
-    songDetails.textContent = [movie, cosinger].filter(Boolean).join(' • ');
+    songDetails.textContent = [movie, cosinger].filter(Boolean).join(' â€¢ ');
     
     // Create YouTube iframe
     playerContainer.innerHTML = `
@@ -555,7 +559,7 @@ function setupMiniPlayer() {
     if (minimizeBtn) {
         minimizeBtn.addEventListener('click', () => {
             miniPlayer.classList.toggle('minimized');
-            minimizeBtn.textContent = miniPlayer.classList.contains('minimized') ? '▲' : '▼';
+            minimizeBtn.textContent = miniPlayer.classList.contains('minimized') ? 'â–²' : 'â–¼';
         });
     }
     
