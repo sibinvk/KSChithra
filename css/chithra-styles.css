@@ -2,7 +2,6 @@
    K.S. CHITHRA TRIBUTE - ELEGANT DARK THEME
    Sophisticated dark design with magenta/purple accents celebrating the Nightingale of South India
    ================================================================= */
-/* Import Poppins Font from Google Fonts (similar to Amutham Masala website) */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rockwell:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sagona:wght@300;400;500;600;700;800;900&display=swap');
@@ -46,7 +45,7 @@
     box-sizing: border-box;
 }
 
-body {font-family: 'Sagona', sans-serif;
+body {font-family: 'Jost', sans-serif;
     line-height: 1.6;
     color: var(--text-normal);
     background: var(--bg-dark);
