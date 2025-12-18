@@ -584,7 +584,7 @@ nav {
 
 .language-badge {
     display: inline-block;
-    background: var(--bg-darkest);
+    background: var(--bg-dark);
     color: var(--gold-deep);
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
