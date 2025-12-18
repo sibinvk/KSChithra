@@ -198,11 +198,23 @@ function playYouTubeVideo(song) {
     
     // Create YouTube iframe
     playerContainer.innerHTML = `
-        <iframe
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
+        <div style="position: relative;">
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&origin=${window.location.origin}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="width: 100%; height: 400px;">
+            </iframe>
+            <div style="text-align: center; padding: 10px; background: rgba(201, 24, 74, 0.1); border-radius: 8px; margin-top: 10px;">
+                <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" 
+                   style="display: inline-block; background: linear-gradient(135deg, #C9184A, #7209B7); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                    ðŸŽ¬ Watch on YouTube
+                </a>
+                <p style="color: #ADB5BD; font-size: 0.85rem; margin-top: 8px;">If video doesn't play above, click this button</p>
+            </div>
+        </div>
     `;
     
     // Show mini player
