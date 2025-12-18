@@ -3,8 +3,8 @@
    Sophisticated dark design with magenta/purple accents celebrating the Nightingale of South India
    ================================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rockwell:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sagona:wght@300;400;500;600;700;800;900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Rockwell:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sagona:wght@300;400;500;600;700;800;900&display=swap');*/
 
 
 :root {
@@ -584,7 +584,7 @@ nav {
 
 .language-badge {
     display: inline-block;
-    background: var(--gold-glow);
+    background: var(--rose-deep);
     color: var(--gold-deep);
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
