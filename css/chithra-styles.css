@@ -492,7 +492,12 @@ nav {
     margin: 2rem auto;
     padding: 0 2rem;
 }
-
+ background: var(--bg-darkest);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem auto;
+    max-width: 1400px;
+    box-shadow: 0 4px 20px rgba(201, 24, 74, 0.1);
 .songs-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -594,7 +599,7 @@ nav {
 }
 
 .language-header-card {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #FFD700;
     text-transform: uppercase;
