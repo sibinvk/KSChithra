@@ -500,7 +500,7 @@ nav {
 }
 
 .song-card {
-    background: linear-gradient(135deg, #C9184A 0%, #7209B7 50%, #560BAD 100%);
+    background: linear-gradient(135deg, #1a093d 0%, #1E1E2E 100%);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(201, 24, 74, 0.3);
@@ -589,10 +589,12 @@ nav {
     justify-content: flex-start;
     gap: 8px;
     overflow: hidden;
+       font-size: 1rem;
+
 }
 
 .language-header-card {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: #FFD700;
     text-transform: uppercase;
@@ -601,7 +603,7 @@ nav {
 }
 
 .song-title-card {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #FFFFFF;
     margin: 0;
