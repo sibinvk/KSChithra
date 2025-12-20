@@ -141,9 +141,8 @@ function createSongCard(song) {
     const youtubeUrl = song.youtube || song['youtube link'] || song.link || '';
     const hasVideo = !!youtubeUrl;
     
-    // Determine if it's a Film Song or Non-Film Song
-    const isFilmSong = type.toLowerCase().includes('film');
-    const movieLabel = isFilmSong ? 'Movie:' : 'Album:';
+    // Determine label: "Non-Film Song" → Album, everything else (including "Film Song") → Movie
+    const movieLabel = (type === 'Non-Film Song') ? 'Album:' : 'Movie:';
     
     // Format co-singers nicely
     let cosingerDisplay = cosinger;
@@ -167,15 +166,6 @@ function createSongCard(song) {
                     <div class="song-meta-card">
                         ${type ? `<div class="meta-row"><span class="meta-label">Type:</span> ${type}</div>` : ''}
                         ${movie ? `<div class="meta-row"><span class="meta-label">${movieLabel}</span> ${movie}</div>` : ''}
-                        ${year ? `<div class="meta-row"><span class="meta-label">Year:</span> ${year}</div>` : ''}
-                        ${composer ? `<div class="meta-row"><span class="meta-label">Music:</span> ${composer}</div>` : ''}
-                        ${cosingerDisplay ? `<div class="meta-row"><span class="meta-label">Co-Singer:</span> ${cosingerDisplay}</div>` : ''}
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
                         ${year ? `<div class="meta-row"><span class="meta-label">Year:</span> ${year}</div>` : ''}
                         ${composer ? `<div class="meta-row"><span class="meta-label">Music:</span> ${composer}</div>` : ''}
                         ${cosingerDisplay ? `<div class="meta-row"><span class="meta-label">Co-Singer:</span> ${cosingerDisplay}</div>` : ''}
