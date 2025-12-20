@@ -161,11 +161,11 @@ function createSongCard(song) {
                     ${language ? `<div class="language-header-card">${language}</div>` : ''}
                     <h3 class="song-title-card">${title}</h3>
                     <div class="song-meta-card">
-                        ${type ? `<div class="meta-row"><span class="meta-label">T:</span> ${type}</div>` : ''}
-                        ${movie ? `<div class="meta-row"><span class="meta-label">F/A:</span> ${movie}</div>` : ''}
-                        ${year ? `<div class="meta-row"><span class="meta-label">Y:</span> ${year}</div>` : ''}
-                        ${composer ? `<div class="meta-row"><span class="meta-label">M:</span> ${composer}</div>` : ''}
-                        ${cosingerDisplay ? `<div class="meta-row"><span class="meta-label">CS:</span> ${cosingerDisplay}</div>` : ''}
+                        ${type ? `<div class="meta-row"><span class="meta-label">Type:</span> ${type}</div>` : ''}
+                        ${movie ? `<div class="meta-row"><span class="meta-label">Film/Album:</span> ${movie}</div>` : ''}
+                        ${year ? `<div class="meta-row"><span class="meta-label">Year:</span> ${year}</div>` : ''}
+                        ${composer ? `<div class="meta-row"><span class="meta-label">Music:</span> ${composer}</div>` : ''}
+                        ${cosingerDisplay ? `<div class="meta-row"><span class="meta-label">CoSinger:</span> ${cosingerDisplay}</div>` : ''}
                     </div>
                 </div>
             </div>
