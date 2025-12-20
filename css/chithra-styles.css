@@ -500,7 +500,7 @@ nav {
 }
 
 .song-card {
-    background: linear-gradient(135deg, #1a093d 0%, #1E1E2E 100%);
+    background: linear-gradient(135deg, #323273 0%, #1E1E2E 100%);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(201, 24, 74, 0.3);
