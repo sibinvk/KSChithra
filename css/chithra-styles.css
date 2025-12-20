@@ -500,20 +500,20 @@ nav {
 }
 
 .song-card {
-    background: linear-gradient(135deg, rgba(30, 30, 46, 0.95), rgba(18, 18, 26, 0.98));
+    background: linear-gradient(135deg, #C9184A 0%, #7209B7 50%, #560BAD 100%);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(201, 24, 74, 0.15);
+    box-shadow: 0 4px 15px rgba(201, 24, 74, 0.3);
     transition: all 0.3s ease;
     cursor: pointer;
-    border: 2px solid rgba(201, 24, 74, 0.2);
-    height: 180px;
+    border: 2px solid rgba(255, 107, 157, 0.3);
+    height: 200px;
 }
 
 .song-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(201, 24, 74, 0.3);
-    border-color: rgba(255, 107, 157, 0.6);
+    box-shadow: 0 8px 30px rgba(201, 24, 74, 0.5);
+    border-color: rgba(255, 107, 157, 0.8);
 }
 
 .song-card.no-video {
@@ -521,102 +521,30 @@ nav {
     cursor: not-allowed;
 }
 
-.song-card-inner {
+.song-card-container {
     display: flex;
     height: 100%;
     position: relative;
 }
 
-/* LEFT SIDE - Song Details */
-.song-card-left {
-    flex: 1;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 8px;
-    overflow: hidden;
-}
-
-.song-language-header {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #FF6B9D;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-.song-card-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #F8F9FA;
-    margin: 0;
-    line-height: 1.2;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.song-card-details {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex: 1;
-    overflow: hidden;
-}
-
-.detail-item {
-    font-size: 0.75rem;
-    color: #ADB5BD;
-    line-height: 1.3;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.detail-label {
-    color: #C77DFF;
-    font-weight: 600;
-}
-
-.song-genre-tag {
-    display: inline-block;
-    background: rgba(201, 24, 74, 0.2);
-    color: #FF6B9D;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    align-self: flex-start;
-    margin-top: auto;
-}
-
-/* RIGHT SIDE - K.S. Chithra Image */
-.song-card-right {
-    width: 140px;
-    position: relative;
-    background: linear-gradient(135deg, rgba(10, 10, 15, 0.8), rgba(30, 30, 46, 0.6));
-}
-
-.chithra-image-container {
-    width: 100%;
-    height: 100%;
-    background-image: url('ks-chithra.png');
+/* LEFT SIDE - K.S. Chithra Image */
+.chithra-image-side {
+    width: 150px;
+    background-image: url('../ks-chithra.png');
     background-size: contain;
-    background-position: center right;
+    background-position: center left;
     background-repeat: no-repeat;
     position: relative;
+    flex-shrink: 0;
 }
 
-.play-overlay-new {
+.play-overlay-card {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(201, 24, 74, 0.85);
+    background: rgba(0, 0, 0, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -624,17 +552,17 @@ nav {
     transition: opacity 0.3s ease;
 }
 
-.song-card:hover .play-overlay-new {
+.song-card:hover .play-overlay-card {
     opacity: 1;
 }
 
-.play-icon-new {
+.play-icon-card {
     color: white;
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
-.no-video-overlay-new {
+.no-video-overlay-card {
     position: absolute;
     top: 0;
     left: 0;
@@ -649,7 +577,62 @@ nav {
 .no-video-text {
     color: white;
     font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* RIGHT SIDE - Song Details */
+.song-details-side {
+    flex: 1;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.language-header-card {
     font-size: 0.8rem;
+    font-weight: 700;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+}
+
+.song-title-card {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.song-meta-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.meta-row {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meta-label {
+    color: #FFD700;
+    font-weight: 600;
+    margin-right: 3px;
 }
 
 .loading {
@@ -950,15 +933,19 @@ footer p {
     }
     
     .song-card {
-        height: 160px;
+        height: 180px;
     }
     
-    .song-card-right {
-        width: 110px;
+    .chithra-image-side {
+        width: 120px;
     }
     
-    .song-card-title {
-        font-size: 0.9rem;
+    .song-title-card {
+        font-size: 0.95rem;
+    }
+    
+    .meta-row {
+        font-size: 0.75rem;
     }
     
     .nav-links {
@@ -980,7 +967,6 @@ footer p {
 @media (min-width: 769px) and (max-width: 1024px) {
     .songs-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
     }
 }
 
@@ -988,6 +974,5 @@ footer p {
 @media (min-width: 1025px) and (max-width: 1400px) {
     .songs-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
     }
 }
