@@ -495,8 +495,8 @@ nav {
 
 .songs-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
 }
 
 .song-card {
@@ -522,26 +522,13 @@ nav {
 
 .song-thumbnail {
     background: var(--bg-medium);
-    height: 120px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
     position: relative;
     color: var(--rose-deep);
-    background-size: cover;
-    background-position: center;
-}
-
-.song-thumbnail::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%);
-    z-index: 1;
 }
 
 .play-overlay {
@@ -556,7 +543,6 @@ nav {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 2;
 }
 
 .song-card:hover .play-overlay {
@@ -565,7 +551,7 @@ nav {
 
 .play-icon {
     color: white;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 .no-video-overlay {
@@ -583,6 +569,77 @@ nav {
 .no-video-text {
     color: white;
     font-weight: bold;
+}
+
+/* Custom thumbnail with K.S. Chithra image and song details */
+.custom-thumbnail {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/K._S._Chithra_at_Filmfare_Awards_South.jpg/800px-K._S._Chithra_at_Filmfare_Awards_South.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-thumbnail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, 
+        rgba(201, 24, 74, 0.4) 0%, 
+        rgba(114, 9, 183, 0.6) 50%,
+        rgba(10, 10, 15, 0.95) 100%);
+    z-index: 1;
+}
+
+.custom-thumbnail::after {
+    content: attr(data-song-title);
+    position: absolute;
+    bottom: 35px;
+    left: 10px;
+    right: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Movie/Year details on thumbnail */
+.custom-thumbnail[data-movie]::after {
+    content: attr(data-song-title) '\A' attr(data-movie) ' • ' attr(data-year);
+    white-space: pre-line;
+    font-size: 0.85rem;
+}
+
+.custom-thumbnail[data-movie=""]::after {
+    content: attr(data-song-title) '\A' attr(data-year);
+    white-space: pre-line;
+}
+
+/* Language badge on thumbnail */
+.custom-thumbnail[data-language]::before {
+    content: attr(data-language);
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, #C9184A, #7209B7);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    z-index: 3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(201, 24, 74, 0.4);
 }
 
 .song-info {
@@ -945,19 +1002,3 @@ footer p {
         gap: 1.5rem;
     }
 }
-
-/* Tablet - 2 columns */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .songs-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-/* Medium Desktop - 3 columns */
-@media (min-width: 1025px) and (max-width: 1400px) {
-    .songs-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
-                    }
