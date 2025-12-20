@@ -141,9 +141,6 @@ function createSongCard(song) {
     const youtubeUrl = song.youtube || song['youtube link'] || song.link || '';
     const hasVideo = !!youtubeUrl;
     
-    // Generate custom thumbnail with song details instead of YouTube thumbnail
-    const customThumbnail = generateCustomThumbnail(title, movie, year, language);
-    
     // Format co-singers nicely
     let cosingerDisplay = cosinger;
     if (cosinger) {
@@ -153,30 +150,27 @@ function createSongCard(song) {
     
     return `
         <div class="song-card ${!hasVideo ? 'no-video' : ''}" data-genre="${genre}" data-type="${type}">
-            <div class="song-thumbnail custom-thumbnail" data-song-title="${title}" data-movie="${movie}" data-year="${year}" data-language="${language}">
-                ${!hasVideo ? '🚫' : ''}
-                ${hasVideo ? '<div class="play-overlay"><div class="play-icon">▶</div></div>' : '<div class="no-video-overlay"><div class="no-video-text">No Video</div></div>'}
-            </div>
-            <div class="song-info">
-                <h3>${title}</h3>
-                ${language ? `<div class="language-badge ${languageClass}">${language}</div>` : ''}
-                <div class="song-details">
-                    ${type ? `<div class="song-detail"><strong>Type:</strong> ${type}</div>` : ''}
-                    ${movie ? `<div class="song-detail"><strong>Movie/Album:</strong> ${movie}</div>` : ''}
-                    ${year ? `<div class="song-detail"><strong>Year:</strong> ${year}</div>` : ''}
-                    ${composer ? `<div class="song-detail"><strong>Music:</strong> ${composer}</div>` : ''}
-                    ${cosingerDisplay ? `<div class="song-detail"><strong>Co-Singer:</strong> ${cosingerDisplay}</div>` : ''}
+            <div class="song-card-inner">
+                <div class="song-card-left">
+                    ${language ? `<div class="song-language-header">${language}</div>` : ''}
+                    <h3 class="song-card-title">${title}</h3>
+                    <div class="song-card-details">
+                        ${type ? `<div class="detail-item"><span class="detail-label">Type:</span> ${type}</div>` : ''}
+                        ${movie ? `<div class="detail-item"><span class="detail-label">Movie:</span> ${movie}</div>` : ''}
+                        ${year ? `<div class="detail-item"><span class="detail-label">Year:</span> ${year}</div>` : ''}
+                        ${composer ? `<div class="detail-item"><span class="detail-label">Music:</span> ${composer}</div>` : ''}
+                        ${cosingerDisplay ? `<div class="detail-item"><span class="detail-label">Co-Singer:</span> ${cosingerDisplay}</div>` : ''}
+                    </div>
+                    ${genre ? `<div class="song-genre-tag">${genre}</div>` : ''}
                 </div>
-                ${genre ? `<div class="tags"><span class="tag">${genre}</span></div>` : ''}
+                <div class="song-card-right">
+                    <div class="chithra-image-container">
+                        ${hasVideo ? '<div class="play-overlay-new"><div class="play-icon-new">▶</div></div>' : '<div class="no-video-overlay-new"><div class="no-video-text">No Video</div></div>'}
+                    </div>
+                </div>
             </div>
         </div>
     `;
-}
-
-// Generate custom thumbnail HTML with K.S. Chithra image and song details
-function generateCustomThumbnail(title, movie, year, language) {
-    // This will be styled with CSS to show K.S. Chithra image and details overlay
-    return true; // Just a flag to indicate custom thumbnail generation
 }
 
 // Play YouTube video in mini player
@@ -203,23 +197,11 @@ function playYouTubeVideo(song) {
     
     // Create YouTube iframe
     playerContainer.innerHTML = `
-        <div style="position: relative;">
-            <iframe
-                src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&origin=${window.location.origin}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin"
-                style="width: 100%; height: 400px;">
-            </iframe>
-            <div style="text-align: center; padding: 10px; background: rgba(201, 24, 74, 0.1); border-radius: 8px; margin-top: 10px;">
-                <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" 
-                   style="display: inline-block; background: linear-gradient(135deg, #C9184A, #7209B7); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">
-                    🎬 Watch on YouTube
-                </a>
-                <p style="color: #ADB5BD; font-size: 0.85rem; margin-top: 8px;">If video doesn't play above, click this button</p>
-            </div>
-        </div>
+        <iframe
+            src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
     `;
     
     // Show mini player
