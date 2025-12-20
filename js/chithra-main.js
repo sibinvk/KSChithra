@@ -141,9 +141,8 @@ function createSongCard(song) {
     const youtubeUrl = song.youtube || song['youtube link'] || song.link || '';
     const hasVideo = !!youtubeUrl;
     
-    // Get YouTube video ID for thumbnail
-    const videoId = getYouTubeVideoId(youtubeUrl);
-    const thumbnailUrl = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : '';
+    // Generate custom thumbnail with song details instead of YouTube thumbnail
+    const customThumbnail = generateCustomThumbnail(title, movie, year, language);
     
     // Format co-singers nicely
     let cosingerDisplay = cosinger;
@@ -154,9 +153,9 @@ function createSongCard(song) {
     
     return `
         <div class="song-card ${!hasVideo ? 'no-video' : ''}" data-genre="${genre}" data-type="${type}">
-            <div class="song-thumbnail" style="${thumbnailUrl ? `background-image: url('${thumbnailUrl}'); background-size: cover; background-position: center;` : ''}">
-                ${!thumbnailUrl ? (hasVideo ? 'ðŸŽ¤' : 'ðŸš«') : ''}
-                ${hasVideo ? '<div class="play-overlay"><div class="play-icon">â–¶</div></div>' : '<div class="no-video-overlay"><div class="no-video-text">No Video</div></div>'}
+            <div class="song-thumbnail custom-thumbnail" data-song-title="${title}" data-movie="${movie}" data-year="${year}" data-language="${language}">
+                ${!hasVideo ? '🚫' : ''}
+                ${hasVideo ? '<div class="play-overlay"><div class="play-icon">▶</div></div>' : '<div class="no-video-overlay"><div class="no-video-text">No Video</div></div>'}
             </div>
             <div class="song-info">
                 <h3>${title}</h3>
@@ -172,6 +171,12 @@ function createSongCard(song) {
             </div>
         </div>
     `;
+}
+
+// Generate custom thumbnail HTML with K.S. Chithra image and song details
+function generateCustomThumbnail(title, movie, year, language) {
+    // This will be styled with CSS to show K.S. Chithra image and details overlay
+    return true; // Just a flag to indicate custom thumbnail generation
 }
 
 // Play YouTube video in mini player
@@ -194,7 +199,7 @@ function playYouTubeVideo(song) {
     const cosinger = song.cosinger || song['co-singer'] || '';
     
     songTitle.textContent = title;
-    songDetails.textContent = [movie, cosinger].filter(Boolean).join(' â€¢ ');
+    songDetails.textContent = [movie, cosinger].filter(Boolean).join(' • ');
     
     // Create YouTube iframe
     playerContainer.innerHTML = `
@@ -210,7 +215,7 @@ function playYouTubeVideo(song) {
             <div style="text-align: center; padding: 10px; background: rgba(201, 24, 74, 0.1); border-radius: 8px; margin-top: 10px;">
                 <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" 
                    style="display: inline-block; background: linear-gradient(135deg, #C9184A, #7209B7); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">
-                    ðŸŽ¬ Watch on YouTube
+                    🎬 Watch on YouTube
                 </a>
                 <p style="color: #ADB5BD; font-size: 0.85rem; margin-top: 8px;">If video doesn't play above, click this button</p>
             </div>
@@ -571,7 +576,7 @@ function setupMiniPlayer() {
     if (minimizeBtn) {
         minimizeBtn.addEventListener('click', () => {
             miniPlayer.classList.toggle('minimized');
-            minimizeBtn.textContent = miniPlayer.classList.contains('minimized') ? 'â–²' : 'â–¼';
+            minimizeBtn.textContent = miniPlayer.classList.contains('minimized') ? '▲' : '▼';
         });
     }
     
