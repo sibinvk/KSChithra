@@ -530,7 +530,7 @@ nav {
 /* LEFT SIDE - K.S. Chithra Image */
 .chithra-image-side {
     width: 150px;
-    background-image: url('../ks-chithra.png');
+    background-image: url('ks-chithra.png');
     background-size: contain;
     background-position: center left;
     background-repeat: no-repeat;
