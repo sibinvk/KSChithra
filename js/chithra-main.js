@@ -142,7 +142,7 @@ function createSongCard(song) {
     const hasVideo = !!youtubeUrl;
     
     // Determine label: "Non-Film Song" → Album, everything else (including "Film Song") → Movie
-    const movieLabel = (type === 'Non-Film Song') ? 'Album:' : 'Movie:';
+    const movieLabel = (type == 'Non-Film Song') ? 'Album:' : 'Movie:';
     
     // Format co-singers nicely
     let cosingerDisplay = cosinger;
