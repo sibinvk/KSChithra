@@ -163,7 +163,7 @@ function createSongCard(song) {
                 ${language ? `<div class="language-badge ${languageClass}">${language}</div>` : ''}
                 <div class="song-details">
                     ${type ? `<div class="song-detail"><strong>Type:</strong> ${type}</div>` : ''}
-                    ${movie ? `<div class="song-detail"><strong>Movie:</strong> ${movie}</div>` : ''}
+                    ${movie ? `<div class="song-detail"><strong>Movie/Album:</strong> ${movie}</div>` : ''}
                     ${year ? `<div class="song-detail"><strong>Year:</strong> ${year}</div>` : ''}
                     ${composer ? `<div class="song-detail"><strong>Music:</strong> ${composer}</div>` : ''}
                     ${cosingerDisplay ? `<div class="song-detail"><strong>Co-Singer:</strong> ${cosingerDisplay}</div>` : ''}
