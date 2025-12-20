@@ -140,7 +140,7 @@ function createSongCard(song) {
     const languageClass = getLanguageClass(language);
     const youtubeUrl = song.youtube || song['youtube link'] || song.link || '';
     const hasVideo = !!youtubeUrl;
-    const isFilmSong = type.toLowerCase().includes('film');
+    const isFilmSong = type.toLowerCase().includes('film song');
     const movieLabel = isFilmSong ? 'Movie:' : 'Album:';
 
     
