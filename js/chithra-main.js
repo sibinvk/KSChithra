@@ -150,22 +150,22 @@ function createSongCard(song) {
     
     return `
         <div class="song-card ${!hasVideo ? 'no-video' : ''}" data-genre="${genre}" data-type="${type}">
-            <div class="song-card-inner">
-                <div class="song-card-left">
-                    ${language ? `<div class="song-language-header">${language}</div>` : ''}
-                    <h3 class="song-card-title">${title}</h3>
-                    <div class="song-card-details">
-                        ${type ? `<div class="detail-item"><span class="detail-label">Type:</span> ${type}</div>` : ''}
-                        ${movie ? `<div class="detail-item"><span class="detail-label">Movie:</span> ${movie}</div>` : ''}
-                        ${year ? `<div class="detail-item"><span class="detail-label">Year:</span> ${year}</div>` : ''}
-                        ${composer ? `<div class="detail-item"><span class="detail-label">Music:</span> ${composer}</div>` : ''}
-                        ${cosingerDisplay ? `<div class="detail-item"><span class="detail-label">Co-Singer:</span> ${cosingerDisplay}</div>` : ''}
-                    </div>
-                    ${genre ? `<div class="song-genre-tag">${genre}</div>` : ''}
+            <div class="song-card-container">
+                <!-- K.S. Chithra Image on LEFT -->
+                <div class="chithra-image-side">
+                    ${hasVideo ? '<div class="play-overlay-card"><div class="play-icon-card">▶</div></div>' : '<div class="no-video-overlay-card"><div class="no-video-text">No Video</div></div>'}
                 </div>
-                <div class="song-card-right">
-                    <div class="chithra-image-container">
-                        ${hasVideo ? '<div class="play-overlay-new"><div class="play-icon-new">▶</div></div>' : '<div class="no-video-overlay-new"><div class="no-video-text">No Video</div></div>'}
+                
+                <!-- Song Details on RIGHT -->
+                <div class="song-details-side">
+                    ${language ? `<div class="language-header-card">${language}</div>` : ''}
+                    <h3 class="song-title-card">${title}</h3>
+                    <div class="song-meta-card">
+                        ${type ? `<div class="meta-row"><span class="meta-label">Type:</span> ${type}</div>` : ''}
+                        ${movie ? `<div class="meta-row"><span class="meta-label">Movie/Album:</span> ${movie}</div>` : ''}
+                        ${year ? `<div class="meta-row"><span class="meta-label">Year:</span> ${year}</div>` : ''}
+                        ${composer ? `<div class="meta-row"><span class="meta-label">Music:</span> ${composer}</div>` : ''}
+                        ${cosingerDisplay ? `<div class="meta-row"><span class="meta-label">Co-Singer:</span> ${cosingerDisplay}</div>` : ''}
                     </div>
                 </div>
             </div>
