@@ -594,7 +594,7 @@ nav {
 }
 
 .language-header-card {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: #FFD700;
     text-transform: uppercase;
@@ -629,6 +629,8 @@ nav {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+          font-size: 1.1rem;
+
 }
 
 .meta-label {
