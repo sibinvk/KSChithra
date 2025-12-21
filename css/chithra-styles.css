@@ -499,6 +499,8 @@ nav {
     gap: 1.5rem;
 }
 
+ 
+
 .song-card {
     background: linear-gradient(135deg, #121252 0%, #29061d 100%);
     border-radius: 15px;
@@ -507,7 +509,8 @@ nav {
     transition: all 0.3s ease;
     cursor: pointer;
     border: 2px solid rgba(255, 107, 157, 0.3);
-    height: 200px;
+    height: auto;  /* Changed from 200px to auto */
+    min-height: 180px; /* Minimum height */
 }
 
 .song-card:hover {
@@ -615,14 +618,14 @@ nav {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* For browsers that support line clamping 
+/* For browsers that support line clamping */
 @supports (-webkit-line-clamp: 2) {
     .song-title-card {
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
-}*/
+}
 
 .song-meta-card {
     display: flex;
