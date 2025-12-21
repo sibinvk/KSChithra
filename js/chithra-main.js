@@ -141,6 +141,9 @@ function createSongCard(song) {
     const youtubeUrl = song.youtube || song['youtube link'] || song.link || '';
     const hasVideo = !!youtubeUrl;
     
+    // Determine label: "Non-Film Song" → Album, everything else → Movie
+    const movieLabel = (type == 'Non-Film Song') ? 'Album:' : 'Movie:';
+    
     // Format co-singers nicely
     let cosingerDisplay = cosinger;
     if (cosinger) {
@@ -162,7 +165,7 @@ function createSongCard(song) {
                     <h3 class="song-title-card">${title}</h3>
                     <div class="song-meta-card">
                         ${type ? `<div class="meta-row"><span class="meta-label">Type:</span> ${type}</div>` : ''}
-                        ${movie ? `<div class="meta-row"><span class="meta-label">Movie/Album:</span> ${movie}</div>` : ''}
+                        ${movie ? `<div class="meta-row"><span class="meta-label">${movieLabel}</span> ${movie}</div>` : ''}
                         ${year ? `<div class="meta-row"><span class="meta-label">Year:</span> ${year}</div>` : ''}
                         ${composer ? `<div class="meta-row"><span class="meta-label">Music:</span> ${composer}</div>` : ''}
                         ${cosingerDisplay ? `<div class="meta-row"><span class="meta-label">Co-Singer:</span> ${cosingerDisplay}</div>` : ''}
