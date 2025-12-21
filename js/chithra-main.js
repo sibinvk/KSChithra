@@ -115,26 +115,22 @@ function displaySongs(songs) {
         return;
     }
     
-    // DEBUG: Add debug panel at the top showing which songs are missing titles
-    let debugHTML = '<div style="background: #ff6b9d; color: white; padding: 20px; margin-bottom: 20px; border-radius: 10px;">';
-    debugHTML += '<h3>DEBUG INFO - Songs with Missing Titles:</h3>';
-    let missingCount = 0;
-    songs.forEach((song, i) => {
-        const title = song.song || song.title || '';
-        if (!title) {
-            missingCount++;
-            debugHTML += `<div style="margin: 10px 0; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 5px;">`;
-            debugHTML += `<strong>Song #${i+1}</strong><br>`;
-            debugHTML += `Movie: ${song.movie || 'N/A'}<br>`;
-            debugHTML += `Year: ${song.year || 'N/A'}<br>`;
-            debugHTML += `Type: ${song.type || 'N/A'}<br>`;
-            debugHTML += `Language: ${song.language || 'N/A'}<br>`;
-            debugHTML += `<strong>RAW song field:</strong> "${song.song}"<br>`;
-            debugHTML += `<strong>RAW title field:</strong> "${song.title}"<br>`;
-            debugHTML += `</div>`;
-        }
+    // DEBUG: Show first 10 songs with their actual title values
+    let debugHTML = '<div style="background: #ff6b9d; color: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; font-size: 0.9rem;">';
+    debugHTML += '<h3>DEBUG - First 10 Songs Title Data:</h3>';
+    songs.slice(0, 10).forEach((song, i) => {
+        const title = song.song || song.title || 'Untitled';
+        const titleLength = title.length;
+        const titleTrimmed = title.trim();
+        debugHTML += `<div style="margin: 10px 0; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 5px;">`;
+        debugHTML += `<strong>Song #${i+1}</strong><br>`;
+        debugHTML += `Title value: "${title}"<br>`;
+        debugHTML += `Title length: ${titleLength} chars<br>`;
+        debugHTML += `After trim: "${titleTrimmed}" (${titleTrimmed.length} chars)<br>`;
+        debugHTML += `Movie: ${song.movie}<br>`;
+        debugHTML += `Is title empty? ${!title || title.trim() === ''}<br>`;
+        debugHTML += `</div>`;
     });
-    debugHTML += `<h3>Total songs missing titles: ${missingCount} out of ${songs.length}</h3>`;
     debugHTML += '</div>';
     
     container.innerHTML = debugHTML + songs.map(song => createSongCard(song)).join('');
