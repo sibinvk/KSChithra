@@ -111,9 +111,7 @@
             <canvas id="genreDistChart"></canvas>
         </div>
     </div>
-
-
-     
+    
     <!-- Top 10 Lists -->
     <div class="top-lists-container">
         <!-- Top Composers -->
@@ -159,6 +157,345 @@
         <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 - This is a fan tribute website By Sibin.V.K (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="582b313a31362e336a68686f183f353931sibinvk2007@gmail.com</a>)</p>
     </footer>
     
-<script src="js/chithra-statistics.js?v=2"></script>
-        </body>
+    <script>
+// Statistics Page JavaScript - INLINE VERSION
+console.log('✓ JavaScript loaded inline!');
+
+// Configuration
+const SHEETS_CONFIG = {
+    malayalam: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=0&single=true&output=csv',
+    tamil: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=633202374&single=true&output=csv',
+    telugu: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=1972620029&single=true&output=csv',
+    kannada: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=1314987480&single=true&output=csv',
+    hindi: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=2082159835&single=true&output=csv',
+    other: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=91154675&single=true&output=csv'
+};
+
+let allLanguagesSongs = {};
+let currentViewLanguage = 'all';
+let charts = {};
+
+// Fetch and parse functions
+async function fetchSongsFromSheet(sheetUrl) {
+    try {
+        const response = await fetch(sheetUrl);
+        const csvText = await response.text();
+        return parseCSV(csvText);
+    } catch (error) {
+        console.error('Error fetching songs:', error);
+        return [];
+    }
+}
+
+function parseCSV(csvText) {
+    const lines = csvText.split('\n');
+    const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+    const songs = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        if (!lines[i].trim()) continue;
+        const values = parseCSVLine(lines[i]);
+        const song = {};
+        headers.forEach((header, index) => {
+            song[header] = values[index] ? values[index].trim() : '';
+        });
+        if (song.song || song.title) songs.push(song);
+    }
+    return songs;
+}
+
+function parseCSVLine(line) {
+    const values = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            values.push(current);
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    values.push(current);
+    return values.map(v => v.replace(/^"|"$/g, ''));
+}
+
+async function loadAllSongs() {
+    const loadingEl = document.getElementById('loadingStats');
+    loadingEl.style.display = 'flex';
+    
+    try {
+        console.log('Loading songs...');
+        for (const [language, url] of Object.entries(SHEETS_CONFIG)) {
+            allLanguagesSongs[language] = await fetchSongsFromSheet(url);
+            console.log(`Loaded ${allLanguagesSongs[language].length} ${language} songs`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        loadingEl.innerHTML = '<div class="loading" style="color: #ff6b9d;">Error loading data. Please refresh.</div>';
+        return;
+    }
+    
+    loadingEl.style.display = 'none';
+    updateStatistics('all');
+}
+
+function getSongsForAnalysis(language) {
+    if (language === 'all') return Object.values(allLanguagesSongs).flat();
+    return allLanguagesSongs[language] || [];
+}
+
+function updateStatistics(language) {
+    currentViewLanguage = language;
+    const songs = getSongsForAnalysis(language);
+    updateSummaryCards(songs);
+    updateSongsPerYearChart(songs);
+    updateSongsPerDecadeChart(songs);
+    updateLanguageDistChart();
+    updateGenreDistChart(songs);
+    updateTopComposers(songs);
+    updateTopCosingers(songs);
+    updateTopGenres(songs);
+    updateTopYears(songs);
+}
+
+function updateSummaryCards(songs) {
+    document.getElementById('totalSongs').textContent = songs.length.toLocaleString();
+    const movies = new Set(songs.map(s => s.movie || s.film).filter(Boolean));
+    document.getElementById('totalMovies').textContent = movies.size.toLocaleString();
+    const composers = new Set(songs.map(s => s.composer || s['music director']).filter(Boolean));
+    document.getElementById('totalComposers').textContent = composers.size.toLocaleString();
+    const cosingersSet = new Set();
+    songs.forEach(song => {
+        const cosinger = song.cosinger || song['co-singer'] || '';
+        if (cosinger) {
+            cosinger.split(',').map(s => s.trim()).filter(s => s).forEach(singer => cosingersSet.add(singer));
+        }
+    });
+    document.getElementById('totalCosingers').textContent = cosingersSet.size.toLocaleString();
+    const years = songs.map(s => parseInt(s.year)).filter(y => !isNaN(y));
+    if (years.length > 0) {
+        const minYear = Math.min(...years);
+        const maxYear = Math.max(...years);
+        document.getElementById('yearSpan').textContent = `${maxYear - minYear}+`;
+    }
+}
+
+function updateSongsPerYearChart(songs) {
+    const yearCounts = {};
+    songs.forEach(song => {
+        const year = parseInt(song.year);
+        if (!isNaN(year)) yearCounts[year] = (yearCounts[year] || 0) + 1;
+    });
+    const years = Object.keys(yearCounts).map(Number).sort((a, b) => a - b);
+    const counts = years.map(year => yearCounts[year]);
+    const ctx = document.getElementById('songsPerYearChart');
+    if (charts.songsPerYear) charts.songsPerYear.destroy();
+    charts.songsPerYear = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: years,
+            datasets: [{
+                label: 'Songs',
+                data: counts,
+                borderColor: '#D2691E',
+                backgroundColor: 'rgba(210, 105, 30, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+        }
+    });
+}
+
+function updateSongsPerDecadeChart(songs) {
+    const decadeCounts = {};
+    songs.forEach(song => {
+        const year = parseInt(song.year);
+        if (!isNaN(year)) {
+            const decade = Math.floor(year / 10) * 10;
+            decadeCounts[decade] = (decadeCounts[decade] || 0) + 1;
+        }
+    });
+    const decades = Object.keys(decadeCounts).map(Number).sort((a, b) => a - b);
+    const counts = decades.map(decade => decadeCounts[decade]);
+    const ctx = document.getElementById('songsPerDecadeChart');
+    if (charts.songsPerDecade) charts.songsPerDecade.destroy();
+    charts.songsPerDecade = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: decades.map(d => `${d}s`),
+            datasets: [{
+                label: 'Songs',
+                data: counts,
+                backgroundColor: 'rgba(139, 69, 19, 0.8)',
+                borderColor: '#8B4513',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+        }
+    });
+}
+
+function updateLanguageDistChart() {
+    const languageCounts = {};
+    for (const [language, songs] of Object.entries(allLanguagesSongs)) {
+        const displayName = language.charAt(0).toUpperCase() + language.slice(1);
+        languageCounts[displayName] = songs.length;
+    }
+    const ctx = document.getElementById('languageDistChart');
+    if (charts.languageDist) charts.languageDist.destroy();
+    charts.languageDist = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(languageCounts),
+            datasets: [{
+                data: Object.values(languageCounts),
+                backgroundColor: ['#8B4513', '#D2691E', '#CD853F', '#DEB887', '#F4A460', '#FFD700'],
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'right' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = ((context.parsed / total) * 100).toFixed(1);
+                            return `${context.label}: ${context.parsed} (${percentage}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function updateGenreDistChart(songs) {
+    const genreCounts = {};
+    songs.forEach(song => {
+        const genre = song.genre || song.category || 'Unknown';
+        if (genre) genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+    });
+    const sortedGenres = Object.entries(genreCounts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    const ctx = document.getElementById('genreDistChart');
+    if (charts.genreDist) charts.genreDist.destroy();
+    charts.genreDist = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: sortedGenres.map(([genre]) => genre),
+            datasets: [{
+                label: 'Songs',
+                data: sortedGenres.map(([, count]) => count),
+                backgroundColor: 'rgba(210, 105, 30, 0.8)',
+                borderColor: '#D2691E',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: { legend: { display: false } },
+            scales: { x: { beginAtZero: true, ticks: { precision: 0 } } }
+        }
+    });
+}
+
+function updateTopComposers(songs) {
+    const composerCounts = {};
+    songs.forEach(song => {
+        const composer = song.composer || song['music director'];
+        if (composer) composerCounts[composer] = (composerCounts[composer] || 0) + 1;
+    });
+    const topComposers = Object.entries(composerCounts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    document.getElementById('topComposersList').innerHTML = topComposers.map(([composer, count], index) => `
+        <div class="top-list-item">
+            <div class="top-list-rank">#${index + 1}</div>
+            <div class="top-list-name">${composer}</div>
+            <div class="top-list-count">${count}</div>
+        </div>
+    `).join('');
+}
+
+function updateTopCosingers(songs) {
+    const cosingerCounts = {};
+    songs.forEach(song => {
+        const cosinger = song.cosinger || song['co-singer'] || '';
+        if (cosinger) {
+            cosinger.split(',').map(s => s.trim()).filter(s => s).forEach(singer => {
+                cosingerCounts[singer] = (cosingerCounts[singer] || 0) + 1;
+            });
+        }
+    });
+    const topCosingers = Object.entries(cosingerCounts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    document.getElementById('topCosingersList').innerHTML = topCosingers.map(([cosinger, count], index) => `
+        <div class="top-list-item">
+            <div class="top-list-rank">#${index + 1}</div>
+            <div class="top-list-name">${cosinger}</div>
+            <div class="top-list-count">${count}</div>
+        </div>
+    `).join('');
+}
+
+function updateTopGenres(songs) {
+    const genreCounts = {};
+    songs.forEach(song => {
+        const genre = song.genre || song.category;
+        if (genre) genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+    });
+    const topGenres = Object.entries(genreCounts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    document.getElementById('topGenresList').innerHTML = topGenres.map(([genre, count], index) => `
+        <div class="top-list-item">
+            <div class="top-list-rank">#${index + 1}</div>
+            <div class="top-list-name">${genre}</div>
+            <div class="top-list-count">${count}</div>
+        </div>
+    `).join('');
+}
+
+function updateTopYears(songs) {
+    const yearCounts = {};
+    songs.forEach(song => {
+        const year = parseInt(song.year);
+        if (!isNaN(year)) yearCounts[year] = (yearCounts[year] || 0) + 1;
+    });
+    const topYears = Object.entries(yearCounts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    document.getElementById('topYearsList').innerHTML = topYears.map(([year, count], index) => `
+        <div class="top-list-item">
+            <div class="top-list-rank">#${index + 1}</div>
+            <div class="top-list-name">${year}</div>
+            <div class="top-list-count">${count}</div>
+        </div>
+    `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, starting...');
+    loadAllSongs();
+    document.getElementById('languageSelect').addEventListener('change', function() {
+        updateStatistics(this.value);
+    });
+});
+    </script>
+</body>
 </html>
