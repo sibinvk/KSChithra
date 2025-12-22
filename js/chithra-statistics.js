@@ -75,15 +75,46 @@ function parseCSVLine(line) {
 // Load all songs from all languages
 async function loadAllSongs() {
     const loadingEl = document.getElementById('loadingStats');
-    loadingEl.style.display = 'flex';
-    
-    for (const [language, url] of Object.entries(SHEETS_CONFIG)) {
-        allLanguagesSongs[language] = await fetchSongsFromSheet(url);
+    if (!loadingEl) {
+        console.error('Loading element not found!');
+        alert('Error: Loading element not found. Check HTML.');
+        return;
     }
     
+    loadingEl.classList.remove('hidden');
+    loadingEl.style.display = 'flex';
+    
+    try {
+        console.log('Starting to load songs from all languages...');
+        
+        for (const [language, url] of Object.entries(SHEETS_CONFIG)) {
+            console.log(`Loading ${language}...`);
+            allLanguagesSongs[language] = await fetchSongsFromSheet(url);
+            console.log(`✓ Loaded ${allLanguagesSongs[language].length} ${language} songs`);
+        }
+        
+        console.log('✓ All songs loaded successfully!');
+        const totalSongs = Object.values(allLanguagesSongs).flat().length;
+        console.log(`Total songs: ${totalSongs}`);
+        
+        if (totalSongs === 0) {
+            throw new Error('No songs loaded from any language!');
+        }
+        
+    } catch (error) {
+        console.error('❌ Error loading songs:', error);
+        loadingEl.innerHTML = '<div class="loading" style="color: #ff6b9d; padding: 2rem;">Error loading data. Please refresh the page.<br><br>Error: ' + error.message + '</div>';
+        setTimeout(() => {
+            loadingEl.classList.add('hidden');
+        }, 5000);
+        return;
+    }
+    
+    loadingEl.classList.add('hidden');
     loadingEl.style.display = 'none';
     
     // Initialize statistics
+    console.log('Initializing statistics...');
     updateStatistics('all');
 }
 
