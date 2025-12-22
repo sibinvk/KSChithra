@@ -1,3 +1,7 @@
+// Statistics Page JavaScript
+console.log('✓ chithra-statistics.js file loaded successfully!');
+console.log('Waiting for DOM to load...');
+
 // Configuration - Same as main.js
 const SHEETS_CONFIG = {
     malayalam: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=0&single=true&output=csv',
