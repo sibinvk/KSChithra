@@ -62,6 +62,7 @@
 
 .language-selector label {
     font-weight: 600;
+   background: var(--bg-darkest);
     color: var(--text-bright);
 }
 
