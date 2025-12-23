@@ -496,12 +496,26 @@ function updateTopYears(songs) {
 function updateTopLanguages() {
     const languageCounts = {};
     
-    // Count songs per language
+    // Count main languages (Malayalam, Tamil, Telugu, Kannada, Hindi)
     for (const [language, songs] of Object.entries(allLanguagesSongs)) {
-        const displayName = language.charAt(0).toUpperCase() + language.slice(1);
-        languageCounts[displayName] = songs.length;
+        if (language !== 'other') {
+            const displayName = language.charAt(0).toUpperCase() + language.slice(1);
+            languageCounts[displayName] = songs.length;
+        }
     }
     
+    // Break down "Other" section by individual languages
+    if (allLanguagesSongs.other) {
+        allLanguagesSongs.other.forEach(song => {
+            const lang = song.language || song.Language || 'Unknown';
+            if (lang && lang.trim()) {
+                const cleanLang = lang.trim();
+                languageCounts[cleanLang] = (languageCounts[cleanLang] || 0) + 1;
+            }
+        });
+    }
+    
+    // Sort and get top 10
     const topLanguages = Object.entries(languageCounts)
         .sort((a, b) => b[1] - a[1])
         .slice(0, 10);
@@ -514,34 +528,6 @@ function updateTopLanguages() {
         </div>
     `).join('');
 }
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, starting...');
-    loadAllSongs();
-    document.getElementById('languageSelect').addEventListener('change', function() {
-        updateStatistics(this.value);
-    });
-});
-       /* function updateTopLanguages() {
-    const languageCounts = {};
-    
-    // Count songs per language
-    for (const [language, songs] of Object.entries(allLanguagesSongs)) {
-        const displayName = language.charAt(0).toUpperCase() + language.slice(1);
-        languageCounts[displayName] = songs.length;
-    }
-    
-    const topLanguages = Object.entries(languageCounts)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10);
-    
-    document.getElementById('topLanguagesList').innerHTML = topLanguages.map(([language, count], index) => `
-        <div class="top-list-item">
-            <div class="top-list-rank">#${index + 1}</div>
-            <div class="top-list-name">${language}</div>
-            <div class="top-list-count">${count}</div>
-        </div>
-    `).join('');
-         }*/
     </script>
 </body>
 </html>
