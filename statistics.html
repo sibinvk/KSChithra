@@ -137,6 +137,11 @@
             <h2>📅 Most Productive Years</h2>
             <div id="topYearsList" class="top-list"></div>
         </div>
+        <!-- Top Languages -->
+    <div class="top-list-card">
+        <h2>🌍 Top 10 Languages</h2>
+        <div id="topLanguagesList" class="top-list"></div>
+    </div>
     </div>
     
     <!-- Career Timeline -->
@@ -260,6 +265,7 @@ function updateStatistics(language) {
     updateTopCosingers(songs);
     updateTopGenres(songs);
     updateTopYears(songs);
+    updateTopLanguages();  
 }
 
 function updateSummaryCards(songs) {
@@ -487,7 +493,27 @@ function updateTopYears(songs) {
         </div>
     `).join('');
 }
-
+function updateTopLanguages() {
+    const languageCounts = {};
+    
+    // Count songs per language
+    for (const [language, songs] of Object.entries(allLanguagesSongs)) {
+        const displayName = language.charAt(0).toUpperCase() + language.slice(1);
+        languageCounts[displayName] = songs.length;
+    }
+    
+    const topLanguages = Object.entries(languageCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10);
+    
+    document.getElementById('topLanguagesList').innerHTML = topLanguages.map(([language, count], index) => `
+        <div class="top-list-item">
+            <div class="top-list-rank">#${index + 1}</div>
+            <div class="top-list-name">${language}</div>
+            <div class="top-list-count">${count}</div>
+        </div>
+    `).join('');
+}
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, starting...');
     loadAllSongs();
@@ -495,6 +521,27 @@ document.addEventListener('DOMContentLoaded', function() {
         updateStatistics(this.value);
     });
 });
+       /* function updateTopLanguages() {
+    const languageCounts = {};
+    
+    // Count songs per language
+    for (const [language, songs] of Object.entries(allLanguagesSongs)) {
+        const displayName = language.charAt(0).toUpperCase() + language.slice(1);
+        languageCounts[displayName] = songs.length;
+    }
+    
+    const topLanguages = Object.entries(languageCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10);
+    
+    document.getElementById('topLanguagesList').innerHTML = topLanguages.map(([language, count], index) => `
+        <div class="top-list-item">
+            <div class="top-list-rank">#${index + 1}</div>
+            <div class="top-list-name">${language}</div>
+            <div class="top-list-count">${count}</div>
+        </div>
+    `).join('');
+         }*/
     </script>
 </body>
 </html>
