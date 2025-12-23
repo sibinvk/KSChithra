@@ -13,12 +13,12 @@
     gap: 2rem;
     max-width: 1400px;
     margin: 4rem auto;
-    padding: 5rem 0.2rem;
+    padding: 3.5rem 0.2rem;
 }
 
 .stat-card {
     background: linear-gradient(135deg, var(--bg-medium), var(--bg-elevated));
-    padding: 5rem 0.2rem;
+    padding: 3.5rem 0.2rem;
     border-radius: 20px;
     text-align: center;
     border: 2px solid var(--border-rose);
