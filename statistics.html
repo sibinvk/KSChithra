@@ -528,6 +528,13 @@ function updateTopLanguages() {
         </div>
     `).join('');
 }
+     document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, starting...');
+    loadAllSongs();
+    document.getElementById('languageSelect').addEventListener('change', function() {
+        updateStatistics(this.value);
+    });
+});
     </script>
 </body>
 </html>
