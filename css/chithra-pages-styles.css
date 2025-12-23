@@ -71,7 +71,7 @@
     letter-spacing: 1px;
 }
 
-.language-selector {
+/*.language-selector {
     max-width: 1400px;
     margin: 4rem auto;
     padding: 1 2rem;
@@ -86,6 +86,25 @@
    padding: 0.1rem;
    background: var(--bg-darkest);
     color: var(--text-bright);
+}*/
+.language-selector {
+    max-width: 1400px;
+    margin: 2rem auto;  /* Reduced from 4rem to 2rem */
+    padding: 1.5rem 2rem;  /* Fixed: was "1 2rem", now proper padding */
+    display: flex;
+    align-items: center;
+    background: var(--bg-darkest);
+    gap: 1rem;
+    border-radius: 15px;  /* Added for better appearance */
+}
+
+.language-selector label {
+    font-weight: 600;
+    padding: 0.5rem 1rem;  /* Increased padding */
+    background: var(--bg-darkest);
+    color: var(--text-bright);
+    font-size: 1.3rem;  /* Added to match your design */
+    white-space: nowrap;  /* Prevents label from wrapping */
 }
 
 .charts-container {
