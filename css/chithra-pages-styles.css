@@ -11,9 +11,9 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
-    max-width: 1300px;
-    margin: 2rem auto;
-    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
 }
 
 .stat-card {
