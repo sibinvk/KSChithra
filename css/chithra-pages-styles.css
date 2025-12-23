@@ -21,7 +21,7 @@
     padding: 2rem;
     border-radius: 20px;
     text-align: center;
-    border: 20px solid var(--border-rose);
+    border: 2px solid var(--border-rose);
     transition: all 0.3s ease;
 }
 
@@ -55,6 +55,7 @@
     padding: 0 2rem;
     display: flex;
     align-items: center;
+   background: --bg-darkest
     gap: 1rem;
 }
 
