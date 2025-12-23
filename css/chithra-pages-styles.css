@@ -7,7 +7,7 @@
    STATISTICS PAGE
    ================================================================= */
 
-.stats-overview {
+/*.stats-overview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
@@ -23,6 +23,27 @@
     text-align: center;
     border: 2px solid var(--border-rose);
     transition: all 0.3s ease;
+}*/
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Changed from auto-fit to exactly 6 columns */
+    gap: 1.5rem; /* Reduced gap slightly */
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--bg-medium), var(--bg-elevated));
+    padding: 1.5rem 1rem; /* Reduced padding to fit better */
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid var(--border-rose);
+    transition: all 0.3s ease;
+    min-height: 180px; /* Ensures all cards same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stat-card:hover {
