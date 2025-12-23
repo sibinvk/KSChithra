@@ -56,7 +56,7 @@
     padding: 0 2rem;
     display: flex;
     align-items: center;
-   background: --bg-darkest
+   background: var(--bg-darkest);
     gap: 1rem;
 }
 
