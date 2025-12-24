@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=1200, initial-scale=0.3, user-scalable=yes">
-    <title>Collaborations - K.S. Chithra</title>
+    <meta name="viewport" content="width=1200, initial-scale=0.3, user-scalable=yes">
+    <title>Legendary Collaborations - K.S. Chithra</title>
     <link rel="stylesheet" href="css/chithra-styles.css">
     <link rel="stylesheet" href="css/chithra-pages-styles.css">
 </head>
@@ -23,7 +23,7 @@
                 <li><a href="favorites.html">My Favorites</a></li>
                 <li><a href="awards.html">Awards</a></li>
                 <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="collaborations.html">Collaborations</a></li>
+                <li><a href="collaborations.html" class="active">Collaborations</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
@@ -35,304 +35,535 @@
     </div>
     
     <!-- Stats Overview -->
-    <div class="collab-stats">
-        <div class="collab-stat-card">
-            <div class="stat-number">500+</div>
+    <div class="stats-overview">
+        <div class="stat-card">
+            <div class="stat-icon">🎼</div>
+            <div class="stat-value" id="totalComposers">750</div>
             <div class="stat-label">Music Directors</div>
         </div>
-        <div class="collab-stat-card">
-            <div class="stat-number">1000+</div>
-            <div class="stat-label">Female Co-Singers</div>
+        <div class="stat-card">
+            <div class="stat-icon">🎤</div>
+            <div class="stat-value" id="totalCosingers">400</div>
+            <div class="stat-label">Co-Singers</div>
         </div>
-        <div class="collab-stat-card">
-            <div class="stat-number">200+</div>
-            <div class="stat-label">Directors</div>
+        <div class="stat-card">
+            <div class="stat-icon">🌍</div>
+            <div class="stat-value">15+</div>
+            <div class="stat-label">Languages</div>
         </div>
-        <div class="collab-stat-card">
-            <div class="stat-number">10</div>
-            <div class="stat-label">Language Industries</div>
+        <div class="stat-card">
+            <div class="stat-icon">🎬</div>
+            <div class="stat-value" id="totalMovies">4,366</div>
+            <div class="stat-label">Films/Albums</div>
         </div>
     </div>
-    
-    <!-- Music Directors Section -->
-    <section class="collab-section">
-        <h2>🎼 Legendary Music Directors</h2>
+
+    <!-- Tab Navigation -->
+    <div class="favorites-tabs">
+        <button class="tab-btn active" data-tab="composers">
+            🎼 Top Composers
+        </button>
+        <button class="tab-btn" data-tab="cosingers">
+            🎤 Top Co-Singers
+        </button>
+        <button class="tab-btn" data-tab="legendary">
+            ⭐ Legendary Partnerships
+        </button>
+    </div>
+
+    <!-- Composers Tab -->
+    <div id="composersTab" class="tab-content active">
+        <div class="section-header">
+            <h2>🏆 Most Collaborated Music Directors</h2>
+        </div>
         
-        <div class="composer-grid">
-                     
-            <!-- G. Devarajan -->
-            <div class="composer-card featured">
-                <div class="composer-header">
-                    <h3>G. Devarajan</h3>
-                    <span class="song-count">700+ Songs</span>
-                </div>
-                <div class="composer-content">
-                    <p class="period">1962 - 1996</p>
-                    <p class="period">Most Number of Songs in Malayalam</p>
-                    <p class="description">The maestro who dominated Malayalam cinema in the 1960s-70s. Their partnership defined the golden era of Malayalam film music.</p>
-                    <div class="highlights">
-                        <h4>Notable Works:</h4>
-                        <ul>
-                            <li>"Manushyan Mathangale" - First National Award</li>
-                            <li>"Padmatheerthame Unaroo" - Second National Award</li>
-                            <li>"Harivaraasanam" - Lullaby for Lord Ayyappa</li>
-                            <li>"Kanni Raasi En Raasi" - Tamil Duet</li>
-                            <li>"Aayiram Paadasarangal" Evergreen Classic</li>
-                        </ul>
+        <div id="composersGrid" class="collaborations-grid">
+            <!-- Will be populated by JavaScript -->
+        </div>
+        
+        <div id="loadingComposers" class="loading">Loading composers data...</div>
+    </div>
+
+    <!-- Co-Singers Tab -->
+    <div id="cosingersTab" class="tab-content">
+        <div class="section-header">
+            <h2>🎵 Most Collaborated Co-Singers</h2>
+        </div>
+        
+        <div id="cosingersGrid" class="collaborations-grid">
+            <!-- Will be populated by JavaScript -->
+        </div>
+        
+        <div id="loadingCosingers" class="loading">Loading co-singers data...</div>
+    </div>
+
+    <!-- Legendary Partnerships Tab -->
+    <div id="legendaryTab" class="tab-content">
+        <div class="section-header">
+            <h2>⭐ Legendary Musical Partnerships</h2>
+        </div>
+        
+        <div class="legendary-partnerships">
+            <!-- M.G. Radhakrishnan -->
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎹</div>
+                    <div>
+                        <h3>M.G. Radhakrishnan</h3>
+                        <p class="partnership-period">1979 - 2000s</p>
                     </div>
                 </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">300+</div>
+                        <div class="partnership-stat-label">Songs</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Malayalam</div>
+                        <div class="partnership-stat-label">Primary Language</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    The music director who discovered Chithra and introduced her to Malayalam playback singing in 1979. He recognized her potential and gave her the platform to showcase her extraordinary talent.
+                </p>
+                <div class="notable-songs">
+                    <h4>Notable Works:</h4>
+                    <ul>
+                        <li>"Angopangam" (Devasuram) - Semi-classical masterpiece recorded in single take</li>
+                        <li>Debut in "Kummatti" (1979)</li>
+                        <li>Early films: Attahasam, Snehapoorvam Meera, Njan Ekananu</li>
+                        <li>Numerous Malayalam film albums throughout the 1980s-90s</li>
+                    </ul>
+                </div>
             </div>
+
             <!-- Ilaiyaraaja -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>Ilaiyaraaja</h3>
-                    <span class="song-count">400+ Songs</span>
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎻</div>
+                    <div>
+                        <h3>Ilaiyaraaja</h3>
+                        <p class="partnership-period">1985 - Present</p>
+                    </div>
                 </div>
-                <div class="composer-content">
-                    <p class="period">1977 - Present</p>
-                    <p class="period">Most Number of Songs in Tamil & Telugu</p>
-                    <p class="description">The most prolific and celebrated collaboration in Indian cinema history. Together they created thousands of timeless melodies across Tamil, Malayalam, Telugu, Kannada and Hindi.</p>
-                    <div class="highlights">
-                        <h4>Iconic Songs:</h4>
-                        <ul>
-                            <li>"Devasangeetham Neeyalle" - Malayalam classic</li>
-                            <li>"Amma Endrazhaikkadha" - Tamil masterpiece</li>
-                            <li>"Lalitha Priya Kamalam" - Telugu Classic</li>
-                            <li>"Nannali Neenaagi" - Kannada Melody</li>
-                            <li>"Surumai Akhiyon" - Hindi Lullaby</li>
-                        </ul>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">1000+</div>
+                        <div class="partnership-stat-label">Songs</div>
                     </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Tamil, Telugu, Malayalam, Kannada</div>
+                        <div class="partnership-stat-label">Languages</div>
                     </div>
-            </div>
-            <!-- Raveendran -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>Raveendran</h3>
-                    <span class="song-count">400+ Songs</span>
                 </div>
-                <div class="composer-content">
-                    <p class="period">1979 - 2004</p>
-                    <p class="description">known for his film music rooted in Carnatic traditions. Created melodious semi classcial songs that remain timeless.</p>
-                    <div class="highlights">
-                        <h4>Memorable Songs:</h4>
-                        <ul>
-                            <li>"Ramakadhaganalaym" - Fifth National Award</li>
-                            <li>"Harimuraleeravam" - Timelss Semiclassical Film Song</li>
-                            <li>"Kudajadriyil" - Evergreen Devotioanl Song</li>
-                            <li>"Ezhuswarangalum" - Another Semiclassical Song</li>
-                            <li>"Enthinu Veroru" - Romantic Duet</li>
-                        </ul>
-                    </div>
+                <p class="partnership-description">
+                    One of the most prolific collaborations in Indian cinema history. Ilaiyaraaja recognized Chithra's talent in the mid-1980s and made her a regular voice in Tamil cinema. Together they created thousands of timeless melodies.
+                </p>
+                <div class="notable-songs">
+                    <h4>Iconic Songs:</h4>
+                    <ul>
+                        <li>"Padariye Padippariye" (Sindhu Bhairavi, 1985) - First National Award</li>
+                        <li>First Telugu song: "Paadalenu Pallavaina" (Sindhu Bhairavi dubbed version)</li>
+                        <li>"Ethetho Ennam Valarthen" - First collaboration (1986)</li>
+                        <li>"Yaaro Sonnaangalaam" - Popular Tamil melody</li>
+                        <li>Hundreds of Tamil and Telugu film songs</li>
+                    </ul>
                 </div>
             </div>
-            
-            <!-- Johnson -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>Johnson</h3>
-                    <span class="song-count">250+ Songs</span>
-                </div>
-                <div class="composer-content">
-                    <p class="period">1980 - 2011</p>
-                    <p class="description">Dominated Malayalam cinema in the 1990s. Known for melodious and soulful compositions.</p>
-                    <div class="highlights">
-                        <h4>Hit Songs:</h4>
-                        <ul>
-                            <li>"Aadyamaay Kandanaal" - Soulful Melodious Duet</li>
-                            <li>"Anuraagini Itha" - Evergreen Romantic Song</li>
-                            <li>"Ente Manveenayil" - Pathos</li>
-                            <li>"Melle Melle Mukhapadam"</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            
-            
-            <!-- Ravindra Jain -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>Ravindra Jain</h3>
-                    <span class="song-count">100+ Songs</span>
-                </div>
-                <div class="composer-content">
-                    <p class="period">1975 - 2015</p>
-                    <p class="period">Most Number of Songs in Hindi</p>
-                    <p class="description">Blind Music Director and Lyricist from Bollywood</p>
-                    <div class="highlights">
-                        <h4>Hit Songs:</h4>
-                        <ul>
-                            <li>"Gori Tera Gaav Bada" - Third National Award Song</li>
-                            <li>"Shadaj Ne Paaya" - One of the most difficult song to sing</li>
-                            <li>"Naa Koi Akbar" - Kumaoni Language Song</li>
-                            <li>"Mero Mann" - Beatiful Bhajan in Braj Bhasha</li>
-                            <li>"Ohm Nama Shivaye" - Devotional Song from Bengali Film</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Vidyasagar -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>Vidyasagar</h3>
-                    <span class="song-count">100+ Songs</span>
-                </div>
-                <div class="composer-content">
-                    <p class="period">1990 - Present</p>
-                    <p class="description">Known as Melody King in Malayalam and Tamil</p>
-                    <div class="highlights">
-                        <h4>Hit Songs:</h4>
-                        <ul>
-                            <li>"Vennila Chandanakkinnam" - Malayalam Beautiful Melody</li>
-                            <li>"Anujudai Lakshmanudu" - One and only National Award for Vidyasagar</li>
-                            <li>"Kathal Vandhathum" - Tamil Duet</li>
-                            <li>"Oru Raathri Koodi" - Beatiful Duet</li>
-                            <li>"Karale Nin Kai" - Evergreen Melody</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Salil Chowdhury -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>Salil Chowdhury</h3>
-                    <span class="song-count">100+ Songs</span>
-                </div>
-                <div class="composer-content">
-                    <p class="period">1975 - 1995</p>
-                    <p class="description">Bengali maestro whose Malayalam songs with Yesudas became classics.</p>
-                    <div class="highlights">
-                        <h4>Classics:</h4>
-                        <ul>
-                            <li>"Ni Sa Ga Ma Pa Ni" - Hindi Song</li>
-                            <li>"Saagarame Shaanthamaaka" - Malayalam Song</li>
-                            <li>"Paath Haraabo" - Bengali Song</li>
-                            <li>"Maamataara Baali" - Odia Song</li>
-                            <li>"Thinkal Maalai" - Tamil Song</li>
-                            <li>"Jo Jo Laali" - Kannada Song</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Hamsalekha -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>Hamsalekha</h3>
-                    <span class="song-count">50+ Songs</span>
-                </div>
-                <div class="composer-content">
-                    <p class="period">1986 - Present</p>
-                    <p class="period">Most Number of Songs in Kannada</p>
-                    <p class="description">One of the most prolific music directors in Kannada Film Industry.</p>
-                    <div class="highlights">
-                        <h4>Notable Songs:</h4>
-                        <ul>
-                            <li>"Premalokadinda"</li>
-                            <li>"Anaatha Maguvaade"</li>
-                            <li>"Ramachari Haaduva"</li>
-                            <li>"Andavo Andavu"</li>
-                            <li>"Yaarige Beku Ee Loka"</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
             <!-- A.R. Rahman -->
-            <div class="composer-card">
-                <div class="composer-header">
-                    <h3>A.R. Rahman</h3>
-                    <span class="song-count">10+ Songs</span>
-                </div>
-                <div class="composer-content">
-                    <p class="period">1992 - Present</p>
-                    <p class="description">First Oscar Award Winner in India. Yesudas adapted to Rahman's contemporary fusion style while maintaining classical depth.</p>
-                    <div class="highlights">
-                        <h4>Landmark Songs:</h4>
-                        <ul>
-                            <li>"Pachaikiligal" - Tamil, Telugu and Hindi Versions</li>
-                            <li>"Padakali" - A toungue twisting song from his First Malayalam Film</li>
-                            <li>"Thai Sonna Thalattu" - Refreshing Lullaby</li>
-                            <li>"Oh Bhavre" - Hindi Duet with Ashaji</li>
-                        </ul>
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎹</div>
+                    <div>
+                        <h3>A.R. Rahman</h3>
+                        <p class="partnership-period">1992 - Present</p>
                     </div>
                 </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">200+</div>
+                        <div class="partnership-stat-label">Songs</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Tamil, Hindi, Malayalam, Telugu</div>
+                        <div class="partnership-stat-label">Languages</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    The collaboration that brought Chithra nationwide and international stardom. Rahman could record up to 20 songs in a day with her during her prime, testament to her versatility and professionalism.
+                </p>
+                <div class="notable-songs">
+                    <h4>Blockbuster Hits:</h4>
+                    <ul>
+                        <li>"Chinna Chinna Aasai" (Roja, 1992) - Made her a nationwide star</li>
+                        <li>"Kannalane" (Bombay, 1995) - Hindi version made her identifiable across India</li>
+                        <li>"Ooh La La La" (Minsara Kanavu, 1997) - Second National Award with Rahman</li>
+                        <li>"Malargale" (Love Birds) - Challenging composition</li>
+                        <li>"Yenge Enadhu Kavithai" (Kandukondein Kandukondein)</li>
+                        <li>"Kannamoochi Yennada" - Complex raga changes</li>
+                        <li>"Malargal Ketten" (OK Kanmani, 2015) - Rahman waited for her return to record this</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Raveendran -->
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎼</div>
+                    <div>
+                        <h3>Raveendran</h3>
+                        <p class="partnership-period">1980s - 2005</p>
+                    </div>
+                </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">250+</div>
+                        <div class="partnership-stat-label">Songs</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Malayalam</div>
+                        <div class="partnership-stat-label">Primary Language</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    A major force in Malayalam cinema, Raveendran's melodious compositions perfectly complemented Chithra's voice, creating numerous evergreen hits.
+                </p>
+                <div class="notable-songs">
+                    <h4>Memorable Songs:</h4>
+                    <ul>
+                        <li>"Aalolam Chaanchaadum" (Aduthaduthu, 1984)</li>
+                        <li>"Pularkala Sundara" (Oru May Masapulariyil) - Wistful melody</li>
+                        <li>"Chandanam Manakkunna" (Achuvettante Veedu) - Exquisite composition</li>
+                        <li>"Vaishaka Sandhye" (Nadodikattu) - Comforting classic</li>
+                        <li>"Shyama Meghame" (Adhipan) - Perfect rendition</li>
+                        <li>"Poo Veeno Pooveeno" (Deshadanakili Karayaarilla, 1986)</li>
+                        <li>"Gopika Vasantham" (His Highness Abdullah, 1990) - Based on Shanmukhapriya raga</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Johnson -->
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎸</div>
+                    <div>
+                        <h3>Johnson</h3>
+                        <p class="partnership-period">1986 - 2011</p>
+                    </div>
+                </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">180+</div>
+                        <div class="partnership-stat-label">Songs</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Malayalam</div>
+                        <div class="partnership-stat-label">Language</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    Johnson was so impressed with Chithra's version of "Madhuram Jeevamritha Bindu" (originally composed for Yesudas) that he shook her hands in admiration. Dominated Malayalam cinema in the 1990s with soulful melodies.
+                </p>
+                <div class="notable-songs">
+                    <h4>Hit Songs:</h4>
+                    <ul>
+                        <li>"Pala Poove" (Njan Gandharvan, 1991) - Based on Madhuradhwani raga</li>
+                        <li>"Kannaadikkayyil" (Pavam Pavam Rajakumaran, 1990)</li>
+                        <li>"Madhuram Jeevamritha Bindu" (Chenkol) - Overwhelmed Johnson</li>
+                        <li>"Ponveene Ennullil" (Thalavattam, 1986) - Duet & solo versions</li>
+                        <li>Numerous Malayalam romantic and devotional songs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- M.M. Keeravani -->
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎼</div>
+                    <div>
+                        <h3>M.M. Keeravani</h3>
+                        <p class="partnership-period">1990s - Present</p>
+                    </div>
+                </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">150+</div>
+                        <div class="partnership-stat-label">Songs</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Telugu, Tamil</div>
+                        <div class="partnership-stat-label">Languages</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    Known for creating timeless classics in Telugu cinema, their partnership resulted in numerous hit songs that showcased Chithra's versatility.
+                </p>
+                <div class="notable-songs">
+                    <h4>Notable Collaborations:</h4>
+                    <ul>
+                        <li>Multiple Telugu film soundtracks</li>
+                        <li>Romantic melodies and devotional songs</li>
+                        <li>Chart-topping duets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hamsalekha -->
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎵</div>
+                    <div>
+                        <h3>Hamsalekha</h3>
+                        <p class="partnership-period">1990s - 2000s</p>
+                    </div>
+                </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">200+</div>
+                        <div class="partnership-stat-label">Songs</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Kannada</div>
+                        <div class="partnership-stat-label">Primary Language</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    The leading music director of Kannada cinema, Hamsalekha's collaboration with Chithra produced numerous hits that dominated Karnataka's music scene.
+                </p>
+                <div class="notable-songs">
+                    <h4>Popular Albums:</h4>
+                    <ul>
+                        <li>"Hamsalekha & K S Chitra Combination Hit Songs" compilations</li>
+                        <li>Multiple Kannada film soundtracks</li>
+                        <li>Romantic and folk-inspired compositions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Jerry Amaldev -->
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎹</div>
+                    <div>
+                        <h3>Jerry Amaldev</h3>
+                        <p class="partnership-period">1980s - 1990s</p>
+                    </div>
+                </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">100+</div>
+                        <div class="partnership-stat-label">Songs</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Malayalam</div>
+                        <div class="partnership-stat-label">Language</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    Jerry Amaldev gave Chithra her breakthrough hit and first Kerala State Award, establishing her as a household name in Malayalam cinema.
+                </p>
+                <div class="notable-songs">
+                    <h4>Career-Defining Songs:</h4>
+                    <ul>
+                        <li>"Alorungi Arangorungi" (Ente Mamattikuttiyammaykku) - First superhit, made her a household name</li>
+                        <li>"Aayiram Kannumayi" (Nokkethadhoorathu Kannum Nattu, 1986) - First Kerala State Award</li>
+                        <li>"Ariyathe Ariyathe" (Oru Kadha Oru Nunakkadha)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bombay Ravi -->
+            <div class="partnership-card">
+                <div class="partnership-header">
+                    <div class="partnership-icon">🎼</div>
+                    <div>
+                        <h3>Bombay Ravi</h3>
+                        <p class="partnership-period">1980s - 1990s</p>
+                    </div>
+                </div>
+                <div class="partnership-stats">
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">2 National Awards</div>
+                        <div class="partnership-stat-label">Achievement</div>
+                    </div>
+                    <div class="partnership-stat">
+                        <div class="partnership-stat-value">Malayalam</div>
+                        <div class="partnership-stat-label">Language</div>
+                    </div>
+                </div>
+                <p class="partnership-description">
+                    Their collaboration resulted in two National Film Awards for Chithra, establishing her as one of India's premier playback singers.
+                </p>
+                <div class="notable-songs">
+                    <h4>Award-Winning Songs:</h4>
+                    <ul>
+                        <li>"Manjal Prasadavum" (Nakhakshathangal, 1986) - Second National Award</li>
+                        <li>"Indupushpam Choodi Nilkum" (Vaishali, 1989) - Third National Award</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Female Co-Singers -->
-    <section class="collab-section">
-        <h2>🎤 Female Co-Singers</h2>
-        <p class="section-intro">Sung duets with over 1000 female playback singers across six decades</p>
-        
-        <div class="cosinger-grid">
-            <div class="cosinger-card">
-                <h3>K.S. Chithra</h3>
-                <p class="duet-count">550+ Duets</p>
-                <p>Most number of Duets in Malayalam and Second most in Tamil and Telugu. Their combination produced countless melodious duets.</p>
-            </div>
-            <div class="cosinger-card">
-                <h3>S. Janaki</h3>
-                <p class="duet-count">400+ Duets</p>
-                <p>The most number of Duets in Tamil and Kannada. Their voices blended perfectly across all South Indian languages.</p>
-            </div>
-            
-            <div class="cosinger-card">
-                <h3>P. Susheela</h3>
-                <p class="duet-count">200+ Duets</p>
-                <p>Most number of Duets in Telugu. Another legendary partnership spanning five decades, created numerous evergreen hits.</p>
-            </div>
-            
-                        
-            <div class="cosinger-card">
-                <h3>Vani Jairam</h3>
-                <p class="duet-count">150+ Duets</p>
-                <p>Known for classical-heavy songs, their collaboration elevated film music standards.</p>
-            </div>
-            
-            <div class="cosinger-card">
-                <h3>Sujatha</h3>
-                <p class="duet-count">150+ Duets</p>
-                <p>Late 1970s collaboration producing soulful melodies across languages.</p>
-            </div>
-            <div class="cosinger-card">
-                <h3>SP Balasubramaniam</h3>
-                <p class="duet-count">29 Duets</p>
-                <p>One of the greatest Singer who held the Guinness World Record for recording the highest number of songs, have sung some beautiful male duets in Five Languages.</p>
-            </div>
-            <div class="cosinger-card">
-                <h3>Lata Mangeshkar</h3>
-                <p class="duet-count">10+ Duets</p>
-                <p>The nightingale of India. Their rare collaborations in Hindi were musical gems.</p>
-            </div>
-            
-            <div class="cosinger-card">
-                <h3>Asha Bhosle</h3>
-                <p class="duet-count">10+ Duets</p>
-                <p>Versatile combinations in Hindi.</p>
-            </div>
-            <div class="cosinger-card">
-                <h3>Hemalata</h3>
-                <p class="duet-count">10+ Duets</p>
-                <p>Have sung most number of duets in Hindi.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Legacy Statement -->
-    <section class="legacy-section">
-        <div class="legacy-quote-large">
-            <blockquote>
-                "The magic of K.S. Chithra lies not just in his voice, but in his ability to elevate every composer's work, complement every co-singer's voice, and bring every director's vision to life through song. His collaborations have enriched Indian cinema beyond measure."
-            </blockquote>
-        </div>
-    </section>
-    
-<footer>
+    </div>
+
+    <footer>
         <p><strong>A Tribute to the Legendary K.S. Chithra</strong></p>
         <p>Celebrating over 40 years of musical excellence</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 - This is a fan tribute website by Sibin.V.K (sibinvk2007@gmail.com)</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 - This is a fan tribute website By Sibin.V.K (sibinvk2007@gmail.com)</p>
     </footer>
+
+    <script>
+// Google Sheets Configuration
+const SHEETS_CONFIG = {
+    malayalam: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=0&single=true&output=csv',
+    tamil: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=633202374&single=true&output=csv',
+    telugu: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=1972620029&single=true&output=csv',
+    kannada: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=1314987480&single=true&output=csv',
+    hindi: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=2082159835&single=true&output=csv',
+    other: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQF_EQ0k9tK0NMr_K4ig_fDGK7JGyJ-APUrm8jO00eb0VsKsHno2PUspQ2w6XayF_sIAkZbkyZkwGW0/pub?gid=91154675&single=true&output=csv'
+};
+
+let allSongs = [];
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const tabName = this.dataset.tab;
+        
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.getElementById(tabName + 'Tab').classList.add('active');
+    });
+});
+
+// Fetch and parse functions
+async function fetchSongs(url) {
+    const response = await fetch(url);
+    const text = await response.text();
+    return parseCSV(text);
+}
+
+function parseCSV(csvText) {
+    const lines = csvText.split('\n');
+    const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+    const songs = [];
+    
+    for (let i = 1; i < lines.length; i++) {
+        if (!lines[i].trim()) continue;
+        const values = parseCSVLine(lines[i]);
+        const song = {};
+        headers.forEach((header, index) => {
+            song[header] = values[index] ? values[index].trim() : '';
+        });
+        if (song.song || song.title) songs.push(song);
+    }
+    return songs;
+}
+
+function parseCSVLine(line) {
+    const values = [];
+    let current = '';
+    let inQuotes = false;
+    
+    for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        if (char === '"') {
+            inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+            values.push(current);
+            current = '';
+        } else {
+            current += char;
+        }
+    }
+    values.push(current);
+    return values.map(v => v.replace(/^"|"$/g, ''));
+}
+
+async function loadData() {
+    try {
+        for (const [language, url] of Object.entries(SHEETS_CONFIG)) {
+            const songs = await fetchSongs(url);
+            allSongs = allSongs.concat(songs);
+        }
+        
+        populateComposers();
+        populateCosingers();
+        
+    } catch (error) {
+        console.error('Error loading data:', error);
+    }
+}
+
+function populateComposers() {
+    const composerCounts = {};
+    
+    allSongs.forEach(song => {
+        const composer = song.composer || song['music director'] || song.music;
+        if (composer && composer.trim()) {
+            composerCounts[composer] = (composerCounts[composer] || 0) + 1;
+        }
+    });
+    
+    const topComposers = Object.entries(composerCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 30);
+    
+    const grid = document.getElementById('composersGrid');
+    grid.innerHTML = topComposers.map(([composer, count]) => `
+        <div class="collaboration-card">
+            <div class="collaborator-icon">🎼</div>
+            <div class="collaborator-name">${composer}</div>
+            <div class="collaboration-stats">
+                <div class="collab-stat">
+                    <div class="collab-stat-value">${count}</div>
+                    <div class="collab-stat-label">Songs</div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    document.getElementById('loadingComposers').style.display = 'none';
+    document.getElementById('totalComposers').textContent = new Set(Object.keys(composerCounts)).size;
+}
+
+function populateCosingers() {
+    const cosingerCounts = {};
+    
+    allSongs.forEach(song => {
+        const cosinger = song.cosinger || song['co-singer'] || '';
+        if (cosinger) {
+            cosinger.split(',').map(s => s.trim()).filter(s => s).forEach(singer => {
+                cosingerCounts[singer] = (cosingerCounts[singer] || 0) + 1;
+            });
+        }
+    });
+    
+    const topCosingers = Object.entries(cosingerCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 30);
+    
+    const grid = document.getElementById('cosingersGrid');
+    grid.innerHTML = topCosingers.map(([cosinger, count]) => `
+        <div class="collaboration-card">
+            <div class="collaborator-icon">🎤</div>
+            <div class="collaborator-name">${cosinger}</div>
+            <div class="collaboration-stats">
+                <div class="collab-stat">
+                    <div class="collab-stat-value">${count}</div>
+                    <div class="collab-stat-label">Duets</div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    document.getElementById('loadingCosingers').style.display = 'none';
+    document.getElementById('totalCosingers').textContent = new Set(Object.keys(cosingerCounts)).size;
+}
+
+document.addEventListener('DOMContentLoaded', loadData);
+    </script>
 </body>
-</html>
+                            </html>
