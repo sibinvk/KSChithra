@@ -1,0 +1,180 @@
+/* =================================================================
+   ADDITIONAL STYLES FOR NEW COLLABORATIONS PAGE
+   Add this to chithra-pages-styles.css
+   ================================================================= */
+
+/* Partnership Cards */
+.legendary-partnerships {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.partnership-card {
+    background: linear-gradient(135deg, var(--bg-medium), var(--bg-elevated));
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--border-rose);
+    transition: all 0.3s ease;
+}
+
+.partnership-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(201, 24, 74, 0.3);
+    border-color: var(--rose-light);
+}
+
+.partnership-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.partnership-icon {
+    font-size: 3.5rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--rose-glow);
+    border-radius: 50%;
+}
+
+.partnership-header h3 {
+    color: var(--rose-deep);
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.partnership-period {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.partnership-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: var(--bg-darkest);
+    border-radius: 15px;
+}
+
+.partnership-stat {
+    text-align: center;
+}
+
+.partnership-stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--rose-deep);
+    margin-bottom: 0.5rem;
+}
+
+.partnership-stat-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.partnership-description {
+    color: var(--text-normal);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 1.5rem 0;
+}
+
+.notable-songs {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-darkest);
+    border-radius: 15px;
+    border-left: 4px solid var(--rose-deep);
+}
+
+.notable-songs h4 {
+    color: var(--rose-deep);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.notable-songs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notable-songs li {
+    color: var(--text-normal);
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.notable-songs li::before {
+    content: "♪";
+    position: absolute;
+    left: 0;
+    color: var(--rose-medium);
+    font-size: 1.3rem;
+}
+
+/* Collaboration Card for Grid */
+.collaborator-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.collaborator-name {
+    color: var(--text-bright);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.collaboration-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* Loading state */
+.loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .partnership-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .partnership-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .partnership-card {
+        padding: 1.5rem;
+    }
+    
+    .notable-songs {
+        padding: 1rem;
+    }
+}
